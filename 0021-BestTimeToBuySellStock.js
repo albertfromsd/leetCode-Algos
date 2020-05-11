@@ -36,6 +36,19 @@ function BestTimeToBuySellStock(arr) {
     return maxProfit;
 };
 
+// from googlesoftwareengineer
+// review code and see what the lines inside forloop do
+// var maxProfit = function(prices) {
+//     let currentLow = prices[0];
+//     let maxProfit = 0;
+//     for (let i = 1; i < prices.length; i++) {
+//         currentLow = Math.min(currentLow, prices[i]);
+//         maxProfit = Math.max(maxProfit, prices[i] - currentLow)
+//     }
+//     return maxProfit
+// }
+
+
 const arr1 = [7, 6, 4, 3, 1];
 const arr2 = [7, 1, 5, 3, 6, 4];
 
