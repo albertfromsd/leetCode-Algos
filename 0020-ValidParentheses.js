@@ -29,3 +29,7 @@
 
 // Input: "{[]}"
 // Output: true
+
+function ValidParentheses(str) {
+
+};
