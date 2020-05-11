@@ -18,3 +18,25 @@
 // Input: [7,6,4,3,1]
 // Output: 0
 // Explanation: In this case, no transaction is done, i.e. max profit = 0.
+
+function BestTimeToBuySellStock(arr) {
+    let maxProfit = -Infinity;
+    for( let i=0; i<arr.length; i++ ) {
+        for( let j=i+1; j<arr.length; j++ ) {
+            if( arr[j] - arr[i] > maxProfit ) {
+                maxProfit = arr[j] - arr[i];
+            };
+        };
+    };
+
+    if( maxProfit < 0 ) {
+        maxProfit = 0;
+    };
+
+    return maxProfit;
+};
+
+const arr1 = [7, 6, 4, 3, 1];
+const arr2 = [7, 1, 5, 3, 6, 4];
+
+console.log( BestTimeToBuySellStock(arr1) );
