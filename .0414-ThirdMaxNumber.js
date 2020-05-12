@@ -36,11 +36,11 @@ function ThirdMax(arr) {
         if( arr[0] > arr[1] ) {
             max = arr[0];
             max2 = arr[1];
-            return max2;
+            return max;
         } else {
             max = arr[1];
             max2 = arr[0];
-            return max2;
+            return max;
         }
     };
     
