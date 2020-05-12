@@ -23,6 +23,9 @@
 // Input: nums = [7,7,7,7]
 // Output: [0,0,0,0]
 
+// Runtime: 72 ms, faster than 87.82% of JavaScript online submissions for How Many Numbers Are Smaller Than the Current Number.
+// Memory Usage: 35.9 MB, less than 100.00% of JavaScript online submissions for How Many Numbers Are Smaller Than the Current Number.
+
 function numsSmallerThanCurrent(arr) {
     let newArr = [];
     let count = 0;
