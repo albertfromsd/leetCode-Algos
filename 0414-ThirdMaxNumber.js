@@ -23,6 +23,10 @@
 // Explanation: Note that the third maximum here means the third maximum distinct number.
 // Both numbers with value 2 are both considered as second maximum.
 
+
+// Runtime: 48 ms, faster than 97.56% of JavaScript online submissions for Third Maximum Number.
+// Memory Usage: 35.2 MB, less than 100.00% of JavaScript online submissions for Third Maximum Number.
+
 function ThirdMax(arr) {
     let max = -Infinity;
     let max2 = -Infinity;
@@ -36,34 +40,37 @@ function ThirdMax(arr) {
         if( arr[0] > arr[1] ) {
             max = arr[0];
             max2 = arr[1];
-            return max;
         } else {
             max = arr[1];
             max2 = arr[0];
-            return max;
-        }
+        };
+        return max;
     };
     
     if( arr.length > 2 ) {
         for( let i=0; i<arr.length; i++ ) {
             if( arr[i] > max ) {
+                max3 = max2;
+                max2 = max;
                 max = arr[i];
             };
         };
         for( let j=0; j<arr.length; j++ ) {
             if( arr[j] > max2 && arr[j] < max ) {
+                max3 = max2;
                 max2 = arr[j];
-            } else if( arr[j] == max2 ) {
-                max3 = arr[j];
-            }
+            };
         };
         for( let k=0; k<arr.length; k++ ) {
             if( arr[k] > max3 && arr[k] < max2 ) {
                 max3 = arr[k];
             };
         };
+        if( max2 === -Infinity || max3 === -Infinity ) {
+            return max;
+        };
     };
-    console.log(max, max2, max3)
+    
     return max3;
 };
 
@@ -74,4 +81,4 @@ const arr4 = [3, 1, 2];
 const arr5 = [1];
 const arr6 = [3, 2, 1];
 
-console.log( ThirdMax(arr2) );
+console.log( ThirdMax(arr1) );
