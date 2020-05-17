@@ -12,6 +12,9 @@
 // You must do this in-place without making a copy of the array.
 // Minimize the total number of operations.
 
+// Runtime: 60 ms, faster than 84.15% of JavaScript online submissions for Move Zeroes.
+// Memory Usage: 35.9 MB, less than 36.17% of JavaScript online submissions for Move Zeroes.
+
 function MoveZeroes(arr) {
     let i=0;
     let count=0;
