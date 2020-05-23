@@ -26,3 +26,29 @@
     // ***
     // Does taking the average value of the array help?
     
+// two pointer method
+const containerWithMostWater = ( arr ) => {
+    let max = 0, temp = 0, height = 0, p1 = 0, p2 = arr.length-1;
+    
+    while( p1 < p2 ) {
+        if( arr[p1] < arr[p2] ) {
+            height = arr[p1];
+            p1++;
+        } else {
+            height = arr[p2];
+            p2--;
+        };
+        temp = height*(p2-p1+1);
+        max = temp > max 
+            ? temp 
+            : max;
+    };
+    return max;
+}
+
+const arr1 = [1,8,6,2,5,4,8,3,7];
+const arr2 = [1,8,7,2,5,4,8,3,1];
+const arr3 = [5,8,6,2,5,4,1,9,10];
+const arr4 = [1, 1];
+
+console.log( containerWithMostWater1( arr1 ) );
