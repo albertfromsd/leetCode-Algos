@@ -18,10 +18,10 @@
 // Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. 
 // For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
-const reverse = x => {
-    if( Math.abs(x) > Math.pow(2, 31) ) return 0;
+const reverse = num => {
+    if( Math.abs(num) > Math.pow(2, 31) ) return 0;
 
-    let string = x.toString();
+    let string = num.toString();
     let newString = "";
     
     for (let i=string.length-1; i>=0; i--) {
@@ -31,8 +31,10 @@ const reverse = x => {
             newString += string[i];
         };
     };
-    if( Math.abs( parseInt( newString, 10 ) ) > Math.pow(2, 31) ) return 0;
-    else return parseInt( newString, 10 );
+
+    let newNum = parseInt( newString );
+    if( Math.abs( newNum ) > Math.pow(2, 31) ) return 0;
+    else return newNum;
 };
 
 const num1 = 123;
