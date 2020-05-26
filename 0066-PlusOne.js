@@ -19,25 +19,26 @@
 // Output: [4,3,2,2]
 // Explanation: The array represents the integer 4321.
 
-// Runtime: 64 ms, faster than 21.42% of JavaScript online submissions for Plus One.
-// Memory Usage: 33.9 MB, less than 36.17% of JavaScript online submissions for Plus One.
+// Runtime: 68 ms, faster than 18.91% of JavaScript online submissions for Plus One.
+// Memory Usage: 33.5 MB, less than 100.00% of JavaScript online submissions for Plus One.
 
 
 function plusOne( arr ) {
 
     arr[arr.length-1] += 1;
     for( let i=arr.length-1; i>=0; i-- ) {
+        if( arr[i] < 10 ) return arr;
         if( arr[i] >= 10 ) {
             if( i === 0 ) {
                 arr.unshift( Math.floor( arr[i]/10 ) );
                 arr[i] = arr[i] % 10;
                 arr[i+1] = arr[i+1] % 10;
-                console.log( arr );
             } else {
                 arr[i-1] +=1;
                 arr[i] = arr[i] % 10;
             };
         };
+        
     };
     return arr;
 };
@@ -45,4 +46,4 @@ function plusOne( arr ) {
 const arr1 = [9];
 const arr2 = [9, 9];
 const arr3 = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3];
-plusOne( arr1 );
+plusOne( arr2 );
