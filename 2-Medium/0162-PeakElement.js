@@ -19,9 +19,23 @@
 
 // Follow up: Your solution should be in logarithmic complexity.
 
+// [ 2020-05-29 @ 1300 ]
+// Runtime: 68 ms, faster than 22.15% of JavaScript online submissions for Find Peak Element.
+// Memory Usage: 36.1 MB, less than 12.50% of JavaScript online submissions for Find Peak Element.
 function findPeakElement( arr ) {
-    
+
+    for( let i=0; i<arr.length; i++ ) {
+        if( ( arr[i-1] === undefined ? -Infinity : arr[i-1] ) < arr[i]
+                &&
+            ( arr[i+1] === undefined ? -Infinity : arr[i+1] ) < arr[i] ) {
+                return i;
+        };
+    };
+
+    return null;
 };
 
 const arr1 = [1,2,3,1];
 const arr2 = [1,2,1,3,5,6,4];
+
+console.log( findPeakElement( arr1 ) );
