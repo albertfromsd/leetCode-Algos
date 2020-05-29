@@ -26,7 +26,6 @@
 
 // Runtime: 48 ms, faster than 97.56% of JavaScript online submissions for Third Maximum Number.
 // Memory Usage: 35.2 MB, less than 100.00% of JavaScript online submissions for Third Maximum Number.
-
 function ThirdMax(arr) {
     let max = -Infinity;
     let max2 = -Infinity;

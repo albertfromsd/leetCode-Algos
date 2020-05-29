@@ -27,6 +27,9 @@
     // Does taking the average value of the array help?
     
 // two pointer method
+
+// Runtime: 72 ms, faster than 50.05% of JavaScript online submissions for Container With Most Water.
+// Memory Usage: 37.6 MB, less than 9.09% of JavaScript online submissions for Container With Most Water.
 const containerWithMostWater = ( arr ) => {
     let max = 0, temp = 0, height = 0, p1 = 0, p2 = arr.length-1;
     
