@@ -18,22 +18,22 @@
 // The input array size is in the range of [1, 20000].
 // n is a non-negative integer which won't exceed the input array size.
 
+// not working
 function canPlaceFlowers0( flowerbed, num ) {
 
     let tempZeroCount = 0;
     let validFlowerSpots = 0;
     
     for( let i=0; i<flowerbed.length; i++ ) {
-        if( flowerbed[i] === 0 ) {
-            tempZeroCount += 1;
-        } else if( flowerbed[i] === 1 ) {
+        if( flowerbed[i] === 0 ) tempZeroCount += 1;
+        else if( flowerbed[i] === 1 ) {
             if( tempZeroCount > 2 ) {
                 validFlowerSpots += Math.floor( (tempZeroCount-3)/2 ) + 1;
             };
             tempZeroCount = 0;
         };
     };
-    console.log( validFlowerSpots >= num );
+    
     return ( validFlowerSpots >= num );
 };
 
@@ -53,20 +53,20 @@ function canPlaceFlowers1( flowerbed, num ) {
                 i += 2;
             } else {
                 i += 1;
-            }
+            };
         } else {
             i += 1;
         };
     };
 
+    console.log( validFlowerSpots >= num );
     return ( validFlowerSpots >= num );
 };
 
 
 
 const arr0 = [0, 0, 1, 0, 1] // 1 -> true
-const arr1 = [1, 0, 0, 0, 1]; // 1 -> true
-const arr2 = [1, 0, 0, 0, 1]; // 2 -> false
-const arr3 = [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1];
+const arr1 = [1, 0, 0, 0, 1]; // 1 -> true // 2 -> false
+const arr2 = [1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1]; // 4 -> true // 5 -> false
 
 canPlaceFlowers1( arr1, 2 );
