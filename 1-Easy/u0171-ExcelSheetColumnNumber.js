@@ -26,6 +26,9 @@
 // Input: "ZY"
 // Output: 701
 
+
+// Runtime: 84 ms, faster than 30.51% of JavaScript online submissions for Excel Sheet Column Number.
+// Memory Usage: 37.3 MB, less than 13.33% of JavaScript online submissions for Excel Sheet Column Number.
 function ExcelColumnAsNumber(str) {
     let alphabet = {
         'A': 1,

@@ -18,6 +18,9 @@
 // Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. 
 // For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
+
+// Runtime: 92 ms, faster than 22.56% of JavaScript online submissions for Reverse Integer.
+// Memory Usage: 37.4 MB, less than 5.21% of JavaScript online submissions for Reverse Integer.
 const reverse = num => {
     if( Math.abs(num) > Math.pow(2, 31) ) return 0;
 

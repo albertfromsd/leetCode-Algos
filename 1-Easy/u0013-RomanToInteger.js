@@ -1,4 +1,5 @@
 // 13 Easy
+// 
 // Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 // Symbol       Value
@@ -19,6 +20,8 @@
 // Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.
 
 
+// Runtime: 160 ms, faster than 31.71% of JavaScript online submissions for Roman to Integer.
+// Memory Usage: 42 MB, less than 6.38% of JavaScript online submissions for Roman to Integer.
 function RomanToInteger(str) {
     const dictionary = {
         "I": 1,
