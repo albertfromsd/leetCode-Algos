@@ -16,6 +16,9 @@
 // Input: ["H","a","n","n","a","h"]
 // Output: ["h","a","n","n","a","H"]
 
+
+// Runtime: 92 ms, faster than 99.56% of JavaScript online submissions for Reverse String.
+// Memory Usage: 42.5 MB, less than 100.00% of JavaScript online submissions for Reverse String.
 function ReverseStringArray(arr) {
     for( let i=0; i<Math.floor(arr.length/2); i++ ) {
         let temp = arr[i];

@@ -12,6 +12,9 @@
 // Input: a = -2, b = 3
 // Output: 1
 
+
+// Runtime: 3228 ms, faster than 5.12% of JavaScript online submissions for Sum of Two Integers.
+// Memory Usage: 35.8 MB, less than 20.00% of JavaScript online submissions for Sum of Two Integers.
 function SumOfTwoNumbers(a, b) {
     let sumA = 0;
     let sumB = 0;

@@ -28,6 +28,9 @@
 //     "FizzBuzz"
 // ]
 
+
+// Runtime: 64 ms, faster than 63.62% of JavaScript online submissions for Fizz Buzz.
+// Memory Usage: 37.7 MB, less than 5.00% of JavaScript online submissions for Fizz Buzz.
 function FizzBuzz(n) {
     let newArr=[];
     for( let i=1; i<=n; i++ ) {

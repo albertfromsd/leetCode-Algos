@@ -25,9 +25,9 @@
 function findPeakElement( arr ) {
 
     for( let i=0; i<arr.length; i++ ) {
-        if( ( arr[i-1] === undefined ? -Infinity : arr[i-1] ) < arr[i]
+        if( ( !arr[i-1]   ? -Infinity   : arr[i-1] ) < arr[i]
                 &&
-            ( arr[i+1] === undefined ? -Infinity : arr[i+1] ) < arr[i] ) {
+            ( !arr[i+1]   ? -Infinity   : arr[i+1] ) < arr[i] ) {
                 return i;
         };
     };
@@ -38,4 +38,4 @@ function findPeakElement( arr ) {
 const arr1 = [1,2,3,1];
 const arr2 = [1,2,1,3,5,6,4];
 
-console.log( findPeakElement( arr1 ) );
+console.log( findPeakElement( arr2 ) );

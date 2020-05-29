@@ -19,6 +19,9 @@
 // Output: 0
 // Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
+
+// Runtime: 352 ms, faster than 11.77% of JavaScript online submissions for Best Time to Buy and Sell Stock.
+// Memory Usage: 37 MB, less than 7.41% of JavaScript online submissions for Best Time to Buy and Sell Stock.
 function BestTimeToBuySellStock(arr) {
     let maxProfit = -Infinity;
     for( let i=0; i<arr.length; i++ ) {
