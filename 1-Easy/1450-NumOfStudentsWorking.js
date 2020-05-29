@@ -43,15 +43,13 @@
 // Memory Usage: 33.9 MB, less than 100.00% of JavaScript online submissions for Number of Students Doing Homework at a Given Time.
 
 function numOfStudentsWorking( startTimes, endTimes, queryTime ) {
-
     let count = 0;
-
+    
     for( let i=0; i<startTimes.length; i++ ) {
         if( queryTime >= startTimes[i] && queryTime <= endTimes[i] ) count += 1;
     };
 
     return count;
-
 };
 
 const startTime1 = [1, 2, 3], endTime1 = [3, 2, 7];
