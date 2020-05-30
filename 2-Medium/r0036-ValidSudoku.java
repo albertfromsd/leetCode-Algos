@@ -29,7 +29,9 @@ class Solution {
                 return false;
             }
         }
-		
+        
+        // why is the (i/3)*3 necessary when it essentially equals i?
+        // really doesn't work unless if that operation is as-is
         int rr=(i/3)*3;
         int cc=(j/3)*3;
         for(int r=0;r<3;r++){

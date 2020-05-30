@@ -50,6 +50,98 @@
 // The given board contain only digits 1-9 and the character '.'.
 // The given board size is always 9x9.
 
+
+
+// Runtime: 88 ms, faster than 34.70% of JavaScript online submissions for Valid Sudoku.
+// Memory Usage: 39.1 MB, less than 26.67% of JavaScript online submissions for Valid Sudoku.
+
+const validSudoku = ( arr ) => {
+    if( arr.length !== 9 || arr[0].length !== 9 ) return false;
+    
+    for( let i=0; i<9; i++ ) {
+        for( let j=0; j<9; j++ ) {
+            if( arr[i][j] != '.' ) {
+                if( isValid( arr, i, j, arr[i][j] ) == false ) return false;
+            }
+        }
+    }
+    return true;
+
+    function isValid( arr, i, j, num ) {
+        for( let r=0; r<9; r++ ) {
+            if( r != i && arr[r][j] == num ) return false;
+        };
+
+        for( let c=0; c<9; c++ ) {
+            if( c != j && arr[i][c] == num ) return false;
+        };
+
+        let subRow;
+        if( i < 3 ) subRow = 0;
+        else if( i > 5 ) subRow = 6;
+        else subRow = 3;
+
+        let subCol;
+        if( j < 3 ) subCol = 0;
+        else if( j > 5 ) subCol = 6;
+        else subCol = 3;
+
+        for( let r=0; r<3; r++ ) {
+            for( let c=0; c<3; c++ ) {
+                let ii = subRow + r;
+                let jj = subCol + c;
+
+                if( ii != i && jj != j && arr[ii][jj] == num ) return false;
+            };
+        };
+        return true;
+    };
+
+};
+
+const arr1 = 
+    [
+        ["5","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ];
+
+const arr2 = 
+    [
+        ["8","3",".",".","7",".",".",".","."],
+        ["6",".",".","1","9","5",".",".","."],
+        [".","9","8",".",".",".",".","6","."],
+        ["8",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".",".",".","8",".",".","7","9"]
+    ];
+
+const arr3 = 
+    [
+        ["8",".",".",".","7",".",".",".","."],
+        [".",".","8","1","9","5",".",".","."],
+        ["8",".","1",".",".",".","5","6","."],
+        ["7",".",".",".","6",".",".",".","3"],
+        ["4",".",".","8",".","3",".",".","1"],
+        ["7",".",".",".","2",".",".",".","6"],
+        [".","6",".",".",".",".","2","8","."],
+        [".",".",".","4","1","9",".",".","5"],
+        [".",".","6",".","8",".",".","7","9"]
+    ];
+
+console.log( validSudoku( arr1 ) );
+// validSudoku0(arr2);
+
+
 // function validSudoku0(arr) {
 //     if( arr.length !== 9 || arr[0].length !== 9 ) return "Matrix array must be 9x9";
 
@@ -168,91 +260,3 @@
 // }
 
 
-// Runtime: 88 ms, faster than 34.70% of JavaScript online submissions for Valid Sudoku.
-// Memory Usage: 39.1 MB, less than 26.67% of JavaScript online submissions for Valid Sudoku.
-
-const validSudoku = ( arr ) => {
-    if( arr.length !== 9 || arr[0].length !== 9 ) return false;
-    
-    for( let i=0; i<9; i++ ) {
-        for( let j=0; j<9; j++ ) {
-            if( arr[i][j] != '.' ) {
-                if( isValid( arr, i, j, arr[i][j] ) == false ) return false;
-            }
-        }
-    }
-    return true;
-
-    function isValid( arr, i, j, num ) {
-        for( let r=0; r<9; r++ ) {
-            if( r != i && arr[r][j] == num ) return false;
-        };
-
-        for( let c=0; c<9; c++ ) {
-            if( c != j && arr[i][c] == num ) return false;
-        };
-
-        let subRow;
-        if( i < 3 ) subRow = 0;
-        else if( i > 5 ) subRow = 6;
-        else subRow = 3;
-
-        let subCol;
-        if( j < 3 ) subCol = 0;
-        else if( j > 5 ) subCol = 6;
-        else subCol = 3;
-
-        for( let r=0; r<3; r++ ) {
-            for( let c=0; c<3; c++ ) {
-                let ii = subRow + r;
-                let jj = subCol + c;
-
-                if( ii != i && jj != j && arr[ii][jj] == num ) return false;
-            };
-        };
-        return true;
-    };
-
-};
-
-const arr1 = 
-    [
-        ["5","3",".",".","7",".",".",".","."],
-        ["6",".",".","1","9","5",".",".","."],
-        [".","9","8",".",".",".",".","6","."],
-        ["8",".",".",".","6",".",".",".","3"],
-        ["4",".",".","8",".","3",".",".","1"],
-        ["7",".",".",".","2",".",".",".","6"],
-        [".","6",".",".",".",".","2","8","."],
-        [".",".",".","4","1","9",".",".","5"],
-        [".",".",".",".","8",".",".","7","9"]
-    ];
-
-const arr2 = 
-    [
-        ["8","3",".",".","7",".",".",".","."],
-        ["6",".",".","1","9","5",".",".","."],
-        [".","9","8",".",".",".",".","6","."],
-        ["8",".",".",".","6",".",".",".","3"],
-        ["4",".",".","8",".","3",".",".","1"],
-        ["7",".",".",".","2",".",".",".","6"],
-        [".","6",".",".",".",".","2","8","."],
-        [".",".",".","4","1","9",".",".","5"],
-        [".",".",".",".","8",".",".","7","9"]
-    ];
-
-const arr3 = 
-    [
-        ["8",".",".",".","7",".",".",".","."],
-        [".",".","8","1","9","5",".",".","."],
-        ["8",".","1",".",".",".","5","6","."],
-        ["7",".",".",".","6",".",".",".","3"],
-        ["4",".",".","8",".","3",".",".","1"],
-        ["7",".",".",".","2",".",".",".","6"],
-        [".","6",".",".",".",".","2","8","."],
-        [".",".",".","4","1","9",".",".","5"],
-        [".",".","6",".","8",".",".","7","9"]
-    ];
-
-console.log( validSudoku( arr1 ) );
-// validSudoku0(arr2);
