@@ -7,7 +7,6 @@
 
 // Given n, return the value of Tn.
 
-
 // Example 1:
 // Input: n = 4
 // Output: 4
@@ -23,3 +22,43 @@
 // Constraints:
 // 0 <= n <= 37
 // The answer is guaranteed to fit within a 32-bit integer, ie. answer <= 2^31 - 1.
+
+
+// Runtime: 64 ms, faster than 21.01% of JavaScript online submissions for N-th Tribonacci Number.
+// Memory Usage: 32.7 MB, less than 100.00% of JavaScript online submissions for N-th Tribonacci Number.
+function tribonacci( index ) {
+    if( index < 0 ) return null;
+
+    let tribTracker = 
+        {
+            0: 0,
+            1: 1,
+            2: 1,
+        };
+
+    if( index < 3 ) return tribTracker[index];
+
+    let i = 3;
+    while( i <= index ) {
+        tribTracker[i] = tribTracker[i-1] + tribTracker[i-2] + tribTracker [i-3];
+
+        i++;
+    };
+
+    console.log( tribTracker );
+    console.log( tribTracker[index] );
+    return tribTracker[index];
+};
+
+tribonacci( 25 );
+
+
+// time limit exceeded, but functional on local computer
+function tribonacciRecursive( index ) {
+    if( index < 0 ) return 0;
+    if( index < 2 ) return index;
+    
+    return ( tribonacciRecursive(index-1) + tribonacciRecursive(index-2) + tribonacciRecursive(index-3) );
+};
+
+// console.log( tribonacciRecursive( 4 ) );

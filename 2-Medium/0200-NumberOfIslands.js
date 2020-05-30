@@ -20,3 +20,26 @@
 // 00100
 // 00011
 // Output: 3
+
+function countIslands ( arr ) {
+
+    let islandIndices = {};
+    let visitedIndices = {};
+    let islandCount = 0;
+
+    let queue = [];
+    function islandCheck( i, j ) {
+        for( let i=0; i<arr.length; i++ ) {
+            for( let j=0; j<arr[0].length; j++ ) {
+    
+            }
+        }
+    }
+
+    function islandMapper(i, j) {
+        let queue = [ arr[i][j] ];
+        while( queue.length ) {
+            
+        }
+    }
+};
