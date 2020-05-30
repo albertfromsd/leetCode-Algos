@@ -38,10 +38,10 @@ function validParentheses( string ) {
 
     let tracker = [];
 
-    for( let i=0; i<string.length; i++ ) {
-        switch( string[i] ) {
+    for( let char of string ) {
+        switch( char ) {
             case "{":
-                tracker.push( string[i] );
+                tracker.push( char );
                 continue;
             case "}":
                 if( tracker[tracker.length-1] !== "{" ) return false;
@@ -50,7 +50,7 @@ function validParentheses( string ) {
                     continue;
                 };
             case "(":
-                tracker.push( string[i] );
+                tracker.push( char );
                 continue;
             case ")":
                 if( tracker[tracker.length-1] !== "(" ) return false;
@@ -59,7 +59,7 @@ function validParentheses( string ) {
                     continue;
                 };
             case '[':
-                tracker.push( string[i] );
+                tracker.push( char );
                 continue;
             case "]":
                 if( tracker[tracker.length-1] !== "[" ) return false;
@@ -80,5 +80,6 @@ const str2 = "()[]{}";
 const str3 = "(]";
 const str4 = "([)]";
 const str5 = "{[]}";
+const str6 = "{[]}(";
 
-console.log( validParentheses( str5 ) );
+console.log( validParentheses( str3 ) );
