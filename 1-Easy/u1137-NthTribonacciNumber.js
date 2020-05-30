@@ -45,15 +45,13 @@ function tribonacci( index ) {
         i++;
     };
 
-    console.log( tribTracker );
-    console.log( tribTracker[index] );
     return tribTracker[index];
 };
 
 tribonacci( 25 );
 
 
-// time limit exceeded, but functional on local computer
+// time limit exceeded on leetcode.com, but functional on local computer
 function tribonacciRecursive( index ) {
     if( index < 0 ) return 0;
     if( index < 2 ) return index;
