@@ -48,25 +48,23 @@ function revealCards1( ogDeck ) {
     let i = 0;
     while( i<ogDeck.length && sortedDeck.length ) {
         if( newDeck.length < ogDeck.length ) {
-            if( revealSwitch === true ) {
-                newDeck.push( sortedDeck.shift() )
-            } else {
-                newDeck.push( "h" );
-            };
+            if( revealSwitch ) newDeck.push( sortedDeck.shift() );
+            else newDeck.push( "h" );
+            
             revealSwitch = !revealSwitch;
         };
         
         if( newDeck.length === ogDeck.length ) {
             i = 1;
             while( sortedDeck.length ) {
-                if( newDeck[i] === 'h'  ) {
-                    if( revealSwitch === true ) {
-                        newDeck[i] = sortedDeck.shift();
-                    };
+                if( newDeck[i] === 'h' ) {
+                    if( revealSwitch ) newDeck[i] = sortedDeck.shift();
+                    
                     revealSwitch = !revealSwitch;
                 };
+
                 i++
-                if( i > newDeck.length ) i = 1;
+                if( i > newDeck.length-1 ) i = 1;
             };
         };
 
@@ -89,5 +87,5 @@ const deck3 = [17,13,11,2,3,5,7,18,19];
 // 2, 19, 3, 13, 5, 18, 7, 17, 11
 const deck4 = [17,13,11,2,3,5,7,18,6,9];
 
-revealCards1( deck3 );
+revealCards1( deck1 );
 
