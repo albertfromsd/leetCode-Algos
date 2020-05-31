@@ -10,7 +10,6 @@
 // If there are multiple answers, you may return any one of them.  
 // It is guaranteed an answer exists.
 
- 
 
 // Example 1:
 // Input: A = [1,1], B = [2,2]
@@ -37,6 +36,9 @@
 // It is guaranteed that Alice and Bob have different total amounts of candy.
 // It is guaranteed there exists an answer.
 
+
+// Runtime: 348 ms, faster than 37.16% of JavaScript online submissions for Fair Candy Swap.
+// Memory Usage: 40.3 MB, less than 33.33% of JavaScript online submissions for Fair Candy Swap.
 function fairCandySwap( arr1, arr2 ) {
     let sum1 = 0;
     for( let i=0; i<arr1.length; i++ ) {
@@ -48,15 +50,26 @@ function fairCandySwap( arr1, arr2 ) {
         sum2 += arr2[j];
     };
 
-    console.log( Math.abs( sum1 - sum2 ) );
-    if( Math.abs( sum1 - sum2 ) % 2 !== 0 ) return false;
-    // Math.min/max check to see who gives up the larger candy
+    if( (sum1 - sum2) % 2 !== 0 ) return false;
+    let targetDiff = ( sum1 - sum2 ) / 2;
 
+    for( let i=0; i<arr1.length; i++ ) {
+        for( let j=0; j<arr2.length; j++ ) {
+            if( arr1[i] - arr2[j] === targetDiff ) {
+                    return [ arr1[i], arr2[j] ];
+            }; 
+        };
+    };
+
+    return;
 };
+
+const Atest = [ 1 ], Btest = [ 1000 ];
+
 
 const A1 = [1,1], B1 = [2,2];
 const A2 = [1,2], B2 = [2,3];
 const A3 = [2], B3 = [1,3];
 const A4 = [1,2,5], B4 = [2,4];
 
-console.log( fairCandySwap( A1, B1 ) );
+console.log( fairCandySwap( A2, B2 ) );

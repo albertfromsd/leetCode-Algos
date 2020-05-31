@@ -15,9 +15,7 @@
 // The first entry in the answer is considered to be the top of the deck.
 
 
-
 // Example 1:
-
 // Input: [17,13,11,2,3,5,7]
 // Output: [2,13,3,11,5,17,7]
 // Explanation: 
@@ -34,31 +32,62 @@
 
 
 // Note:
-
 // 1 <= A.length <= 1000
 // 1 <= A[i] <= 10^6
 // A[i] != A[j] for all i != j
 
-function revealCards( ogDeck ) {
+
+// Runtime: 68 ms, faster than 80.56% of JavaScript online submissions for Reveal Cards In Increasing Order.
+// Memory Usage: 37.3 MB, less than 100.00% of JavaScript online submissions for Reveal Cards In Increasing Order.
+function revealCards1( ogDeck ) {
 
     let newDeck = [];
-    let sortedDeck = ogDeck.sort();
-    console.log( sortedDeck );
+    let sortedDeck = [ ...ogDeck.sort( (a, b) => { return a-b } ) ];
 
-    for( let i=0; i<sortedDeck.length; i++ ) {
-
-    };
-
-    // test loop for output array to make sure every other number is increasing
-    // two staggerred subsets of increasing arrays
-    let shouldReveal = true;
-    for( let i=0; i<newDeck.length; i++ ) {
-        if( shouldReveal ) {
-
+    let revealSwitch = true;
+    let i = 0;
+    while( i<ogDeck.length && sortedDeck.length ) {
+        if( newDeck.length < ogDeck.length ) {
+            if( revealSwitch === true ) {
+                newDeck.push( sortedDeck.shift() )
+            } else {
+                newDeck.push( "h" );
+            };
+            revealSwitch = !revealSwitch;
         };
+        
+        if( newDeck.length === ogDeck.length ) {
+            i = 1;
+            while( sortedDeck.length ) {
+                if( newDeck[i] === 'h'  ) {
+                    if( revealSwitch === true ) {
+                        newDeck[i] = sortedDeck.shift();
+                    };
+                    revealSwitch = !revealSwitch;
+                };
+                i++
+                if( i > newDeck.length ) i = 1;
+            };
+        };
+
+        i++;
     };
 
-
+    console.log( newDeck );
+    return newDeck;
 };
 
 const deck1 = [17,13,11,2,3,5,7];
+const deck2 = [17,13,11,2,3,5,7,18];
+// 2, h, 3, h, 5, h, 7, h
+// 2, 11, 3, h, 5, 13, 7, h
+// 2, 11, 3, 17, 5, 13, 7, 18
+const deck3 = [17,13,11,2,3,5,7,18,19];
+// 2, h, 3, h, 5, h, 7, h, 11
+// 2, h, 3, 13, 5, h, 7, 17, 11
+// 2, h, 3, 13, 5, 18, 7, 17, 11
+// 2, 19, 3, 13, 5, 18, 7, 17, 11
+const deck4 = [17,13,11,2,3,5,7,18,6,9];
+
+revealCards1( deck3 );
+
