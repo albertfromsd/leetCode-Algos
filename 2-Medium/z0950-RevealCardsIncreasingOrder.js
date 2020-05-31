@@ -71,7 +71,6 @@ function revealCards1( ogDeck ) {
         i++;
     };
 
-    console.log( newDeck );
     return newDeck;
 };
 
