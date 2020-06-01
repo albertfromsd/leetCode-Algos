@@ -20,13 +20,13 @@
 // [ Cheating Method]
 // Runtime: 92 ms, faster than 90.08% of JavaScript online submissions for Sort an Array.
 // Memory Usage: 42.4 MB, less than 42.86% of JavaScript online submissions for Sort an Array.
-function sortArrayCheating( arr ) {
+function sortArray0( arr ) {
     return arr.sort( (a,b) => a-b )
 };
 
 
 const arr1 = [5, 2, 3, 1];
-console.log( sortArrayCheating(arr1) );
+console.log( sortArray0(arr1) );
 
 
 // manual method - TERRIBLE
