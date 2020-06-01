@@ -18,6 +18,7 @@
 
 function lastWordLength(str) {
     if( str.length === 0 ) return 0;
+    
     let count = 0;
     let tempStr = str.trim();
     let i = tempStr.length-1;
