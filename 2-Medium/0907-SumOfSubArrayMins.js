@@ -6,7 +6,6 @@
 // Since the answer may be large, return the answer modulo 10^9 + 7.
 
  
-
 // Example 1:
 // Input: [3,1,2,4]
 // Output: 17
@@ -18,3 +17,22 @@
 // 1 <= A.length <= 30000
 // 1 <= A[i] <= 30000
 
+function sumOfSubArrayMins( arr ) {
+
+    let permCount = 0;
+    let i = 1;
+    while( i <= arr.length ) {
+        permCount += i;
+
+        i++
+    };
+
+    let tempArr = [];
+    while( tempArr.length !== permCount ) {
+        
+    }
+
+};
+
+const arr1 = [3,1,2,4];
+sumOfSubArrayMins( arr1 );
