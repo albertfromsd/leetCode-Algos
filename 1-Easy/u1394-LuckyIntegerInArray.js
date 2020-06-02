@@ -38,20 +38,19 @@
 // 1 <= arr[i] <= 500
 
 
-// Runtime: 76 ms, faster than 23.85% of JavaScript online submissions for Find Lucky Integer in an Array.
-// Memory Usage: 37.2 MB, less than 100.00% of JavaScript online submissions for Find Lucky Integer in an Array.
+// Runtime: 68 ms, faster than 35.93% of JavaScript online submissions for Find Lucky Integer in an Array.
+// Memory Usage: 37.1 MB, less than 100.00% of JavaScript online submissions for Find Lucky Integer in an Array.
 function luckyInt( arr ) {
     let intObj = {};
 
     for( let i=0; i<arr.length; i++ ) {
+        if( arr[i] - ( intObj[arr[i]] || 0 ) > arr.length ) continue;
         intObj[arr[i]] = ( intObj[arr[i]] || 0 ) + 1;
     };
-    console.log( intObj );
 
     let luckyArr = [];
     for( let prop in intObj ) {
         if( intObj[prop] == prop ) luckyArr.push( prop );
-        console.log( luckyArr );
     };
 
     if( luckyArr.length ) return Math.max( ...luckyArr );
