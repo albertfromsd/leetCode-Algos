@@ -17,15 +17,19 @@
 
 
 
-// Runtime: 76 ms, faster than 33.18% of JavaScript online submissions for Element Appearing More Than 25% In Sorted Array.
-// Memory Usage: 39.1 MB, less than 100.00% of JavaScript online submissions for Element Appearing More Than 25% In Sorted
+// Runtime: 68 ms, faster than 49.09% of JavaScript online submissions for Element Appearing More Than 25% In Sorted Array.
+// Memory Usage: 37.5 MB, less than 100.00% of JavaScript online submissions for Element Appearing More Than 25% In Sorted Array.
 function moreThanQuarter( arr ) {
     let freqTracker = {};
 
     for( let i=0; i<arr.length; i++ ) {
-        freqTracker[arr[i]] = ( freqTracker[arr[i]] || 0 ) + 1;
-
-        if( freqTracker[arr[i]] > arr.length/4 ) return arr[i];
+        if( (arr[i] === arr[i+1]) || !arr[i+1] ) {
+            freqTracker[arr[i]] = ( freqTracker[arr[i]] || 0 ) + 1;
+            
+            if( freqTracker[arr[i]] > arr.length/4 ) return arr[i];
+        } else {
+            continue;
+        };
     };
 };
 
