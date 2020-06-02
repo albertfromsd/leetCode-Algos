@@ -1,7 +1,20 @@
-const arr0 = [1,2,3,null,5,null,4];
-// binaryTreeRightSideView( arr );
-const arr1 = [1,2,3,null,5,null,4];
+// 199 Medium
+// https://leetcode.com/problems/binary-tree-right-side-view/
 
+// Given a binary tree, imagine yourself standing on the right side of it, 
+// return the values of the nodes you can see ordered from top to bottom.
+
+// Example:
+
+// Input: [1,2,3,null,5,null,4]
+// Output: [1, 3, 4]
+// Explanation:
+
+//    1            <---
+//  /   \
+// 2     3         <---
+//  \     \
+//   5     4       <---
 
 function TreeNode(val, left, right) {
     this.val = (val===undefined ? 0 : val)
@@ -9,6 +22,75 @@ function TreeNode(val, left, right) {
     this.right = (right===undefined ? null : right)
 }
 
+function binaryTreeRightSideQueue( root ) {
+    let result = [];
+
+    let allLevels = [ [root[0]] ];
+    let queue = [ [root] ];
+    while( queue.length ) {
+        let subArr = [];
+        let currentLevel = queue.shift();
+        console.log( "CL: ", currentLevel );
+        if( currentLevel.length ) {
+            for( let i=0; i<currentLevel.length; i++ ) {
+                if( currentLevel[i] ) {
+                    if( currentLevel[i].left ) subArr.push( currentLevel[i].left );
+                    if( currentLevel[i].right ) subArr.push( currentLevel[i].right );
+                }
+            }
+        } else {
+            continue;
+        }
+        
+        queue.push( subArr );
+        allLevels.push( subArr );
+        console.log( "allLs: ", allLevels );
+    };
+    
+    console.log( allLevels );
+
+    // let newArr = [];
+    // for( let i=0; i<result.length; i++ ) {
+    //     if( result[i] ) {
+    //         newArr.push( result[i].val )
+    //     } 
+    // };
+
+    // console.log( newArr );
+    // return newArr;
+ 
+};
+
+const arr1 = [1,2,3,null,5,null,4];
+// binaryTreeRightSideQueue( arr1 );
+
+function rightSideView(root) {
+    console.log( root );
+    let result = [];
+    let queue = [root];
+    while( queue.length ) {
+        let current = queue[0];
+
+        if( current && current.right ) {
+            queue.push( current.right );
+        } else if( current && current.left && !current.right ) {
+            queue.push( current.left );
+        };
+        
+        result.push( queue.shift() );
+    };
+    
+    let newArr = [];
+    for( let i=0; i<result.length; i++ ) {
+        if( result[i] ) {
+            newArr.push( result[i].val )
+        } 
+    };
+
+    return newArr;
+};
+
+console.log( rightSideView(arr1) );
 
 
 function binaryTreeRightSideView( root ) {
@@ -31,64 +113,7 @@ function binaryTreeRightSideView( root ) {
 };
 // binaryTreeRightSideView( arr1 );
 
-function binaryTreeRightSideQueue( root ) {
-    let result = [];
 
-    let levelArr = [ [root[0]] ];
-    let queue = [ root ];
-    while( queue.length ) {
-        let subArr = [];
-        let current = queue.shift();
-        
-        if( current ) {
-            for( let i=0; i<current.length; i++ ) {
-                if( current[i] ) {
-                    if( current[i].left ) subArr.push( current[i].left );
-                    if( current[i].right ) subArr.push( current[i].right );
-                }
-            }
-        }
-        
-        queue.push( subArr );
-        levelArr.push( subArr );
-        console.log( "LArr: ", levelArr );
-
-    };
-    
-    console.log( levelArr );
-
-    // let newArr = [];
-    // for( let i=0; i<result.length; i++ ) {
-    //     if( result[i] ) {
-    //         newArr.push( result[i].val )
-    //     } 
-    // };
-
-    // console.log( newArr );
-    // return newArr;
- 
-};
-binaryTreeRightSideQueue( arr1 );
-
-// 199 Medium
-// https://leetcode.com/problems/binary-tree-right-side-view/
-
-// Given a binary tree, imagine yourself standing on the right side of it, 
-// return the values of the nodes you can see ordered from top to bottom.
-
-// Example:
-// Input: [1,2,3,null,5,null,4]
-// Output: [1, 3, 4]
-// Explanation:
-
-//    1            <---
-//  /   \
-// 2     3         <---
-//  \     \
-//   5     4       <---
-
-// If we observe carefully we can see that if parent node is at index i in the array 
-// then the left child of that node is at index (2*i + 1) and right child is at index (2*i + 2) in the array
 
 function binaryTreeRightSideViewArray( arr ) {
     let result=[];
@@ -98,5 +123,7 @@ function binaryTreeRightSideViewArray( arr ) {
     console.log( result );
     return result
 }
+
+
 
 // console.log( binaryTreeRightSideViewArray( arr1 ) ); 

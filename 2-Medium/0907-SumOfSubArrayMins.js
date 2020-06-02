@@ -28,8 +28,9 @@ function sumOfSubArrayMins( arr ) {
     };
 
     let tempArr = [];
-    while( tempArr.length !== permCount ) {
-        
+    while( tempArr.length < permCount ) {
+        let subArr = [];
+        // need nested loops to keep track of how many consecutive numbers to add into all possible consecutive permutations of input array
     }
 
 };
