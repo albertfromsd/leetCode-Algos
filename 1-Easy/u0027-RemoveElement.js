@@ -28,15 +28,21 @@
 //     print(nums[i]);
 // }
 
-function removeElement( arr, target ) {
-    let valTracker = {};
 
-    for( let i=0; i<arr.length; i++ ) {
-        valTracker[arr[i]] = ( valTracker[arr[i]] || 0 ) + 1;
+// Runtime: 60 ms, faster than 47.98% of JavaScript online submissions for Remove Element.
+// Memory Usage: 33.7 MB, less than 100.00% of JavaScript online submissions for Remove Element.
+function removeElement( arr, target ) {
+
+    let i = 0;
+    while( i < arr.length ) {
+        if( arr[i] == target ) {
+            arr.splice( i, 1 );
+            continue;
+        }
+        i++;
     };
 
-    if( valTracker[target] ) return ( arr.length - valTracker[target] );
-    else return arr.length;
+    return arr.length;
 };
 
 const arr1 = [3, 2, 2, 3]
