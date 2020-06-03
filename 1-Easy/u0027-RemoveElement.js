@@ -36,6 +36,7 @@ function removeElement( arr, target ) {
     let i = 0;
     while( i < arr.length ) {
         if( arr[i] == target ) {
+            // O(n - (arr.length-i) ) time everytime you splice
             arr.splice( i, 1 );
             continue;
         }
@@ -46,6 +47,27 @@ function removeElement( arr, target ) {
 };
 
 const arr1 = [3, 2, 2, 3]
-
 console.log( removeElement( arr1, 3 ) );
+
+
+
+
+// doesn't return the expected output
+function removeElement1( arr, target ) {
+
+    let i = 0;
+    let count = 0;
+    while( i < arr.length ) {
+        if( arr[i] == target ) {
+            count++;
+        }
+        i++;
+    };
+
+    // how to type coerce arr.length to an integer?
+    // bc its passed in by reference as explained above, arr.length returns the first # of elements in the input array
+    return (arr.length+0) - count;
+};
+
+
  
