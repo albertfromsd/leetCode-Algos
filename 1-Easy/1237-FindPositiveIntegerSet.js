@@ -37,3 +37,23 @@
 // 1 <= z <= 100
 // It's guaranteed that the solutions of f(x, y) == z will be on the range 1 <= x, y <= 1000
 // It's also guaranteed that f(x, y) will fit in 32 bit signed integer if 1 <= x, y <= 1000
+
+function positiveInts( num ){
+
+    let newArr = [];
+    
+    let lowStart = 1;
+    while( lowStart < num ) {
+        let topStart = num-lowStart;
+
+        newArr.push( [ lowStart, topStart ] );
+
+        lowStart++;
+    };
+    console.log( newArr );
+    return newArr;
+};
+
+const arr1 = [[1,4],[2,3],[3,2],[4,1]]
+
+positiveInts( 5 );

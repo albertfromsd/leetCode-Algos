@@ -4,13 +4,13 @@
 
 **[ Preface Key ]**
 
-**.** = in progress
+**.** // in progress
 
-**c** = completed but with mediocre optimization
+**c** // completed but with mediocre optimization
 
-**r** = completed but did not fully understand concepts
+**r** // completed but did not fully understand concepts
 
-**u** = completed but with low relative optimization
+**u** // completed but with low relative optimization
 
-**z** = completed with satisfactory (high) relative optimization
+**z** // completed with satisfactory (high) relative optimization
 
