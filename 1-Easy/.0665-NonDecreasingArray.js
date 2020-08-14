@@ -20,20 +20,23 @@
 // - 10 ^ 5 <= nums[i] <= 10 ^ 5
 
 function nonDecreasingArray(arr) {
+
     let decCount = 0;
-    let numCheck;
-    // maybe need pre/post numChecks
 
     for( let i=0; i<arr.length; i++ ) {
-        if( arr[i+1] !== undefined && arr[i+1] > arr[i] ) {
+        if( arr[i+1] !== undefined && arr[i+1] < arr[i] ) {
             decCount += 1;
-            numCheck = arr[i];
-        };
-        if( decCount > 1 ) {
-            return false;
+            if( decCount > 1 ) {
+                return false;
+            };
         };
     };
 
-    // need code to check if numCheck can be changed to make everything increasing
-
+    return true;
 };
+
+const nums1 = [4, 2, 3];
+const nums2 = [4, 2, 1];
+const nums3 = [3, 4, 2, 3];
+
+console.log( nonDecreasingArray( nums1 ) );

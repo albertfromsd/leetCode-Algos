@@ -26,11 +26,11 @@ function validMountain( numsArr ) {
     let i = 0;
     let j = n-1;
 
-    while( i + 1 < n && numsArr[i] < numsArr[i+1] ) i++;
+    while( i+1 < n && numsArr[i] < numsArr[i+1] ) i++;
     while( j > 0 && numsArr[j-1] > numsArr[i+1] ) j--;
     while( j > 0 && numsArr[j-1] > numsArr[j] ) j--;
 
-    return i>0 && i == j && j< n-1;
+    return i>0 && i==j && j<n-1;
 };
 
 const arr1 = [2, 1];
