@@ -18,7 +18,7 @@ function reverseString1( str ) {
     for( let i=str.length-1; i>=0; i-- ) {
         if( str[i] !== " " ) tempStr += str[i];
 
-        if( str[i] === " " ) {
+        if( str[i] === " " || i === 0 ) {
             if( i === str.length-1 ) finalStr = tempStr;
             else finalStr = tempStr + " " + finalStr;
             tempStr = "";
@@ -47,7 +47,5 @@ function reverseString3( str ) {
 };
 
 
-const str1 = "Let's take LeetCode contest"; // Output: "s'teL ekat edoCteeL tsetnoc"
-
 reverseString1( str1 );
-// reverseString2( str1 );
+// reverseString2( str1 );3const str1 = "Let's take LeetCode contest";
