@@ -18,22 +18,22 @@
 
 // Runtime: 84 ms, faster than 92.37% of JavaScript online submissions for Shortest Unsorted Continuous Subarray.
 // Memory Usage: 39.8 MB, less than 62.74% of JavaScript online submissions for Shortest Unsorted Continuous Subarray.
-const findUnsortedSubArray2 = ( arr ) => {
+const findUnsortedSubArray = ( arr ) => {
 
-   let l = 0, r = arr.length-1;
+   let p1 = 0, p2 = arr.length-1;
    let end = -1, start = 0;
    let min  = Infinity, max = -Infinity;
     
-   while( r >= 0 ) {
-      arr[l] >= max 
-         ? max = arr[l] 
-         : end = l;
-      arr[r] <= min 
-         ? min = arr[r] 
-         : start = r;
+   while( p2 >= 0 ) {
+      arr[p1] >= max 
+         ? max = arr[p1] 
+         : end = p1;
+      arr[p2] <= min 
+         ? min = arr[p2] 
+         : start = p2;
       
-      l++;
-      r--;
+      p1++;
+      p2--;
    }
     
    return end-start+1;
@@ -41,3 +41,5 @@ const findUnsortedSubArray2 = ( arr ) => {
 };
 
 const arr1 = [ 2, 6, 4, 8, 10, 9, 15 ];
+
+console.log( findUnsortedSubArray( arr1 ) );
