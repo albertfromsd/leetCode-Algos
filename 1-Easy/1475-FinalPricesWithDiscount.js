@@ -43,13 +43,13 @@
 const finalPrices = ( nums ) => {
    let newNums = [];
    for( let i=0; i<nums.length; i++ ) {
+
       for( let j=i+1; j<nums.length; j++ ) {
-         
          if( nums[j] <= nums[i] ) {
             newNums.push( nums[i] - nums[j] );
             break;
          };
-
+         
          if( j === nums.length-1 ) newNums.push( nums[i] );
       }
 
