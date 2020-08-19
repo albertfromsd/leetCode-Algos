@@ -10,7 +10,6 @@
 // Given a list of non-negative integers representing the amount of money of each house, 
 // determine the maximum amount of money you can rob tonight without alerting the police.
 
- 
 
 // Example 1:
 // Input: nums = [1,2,3,1]
@@ -61,31 +60,28 @@ function houseRobberRecursive( arr ) {
 // Runtime: 68 ms, faster than 26.57% of JavaScript online submissions for House Robber.
 // Memory Usage: 33 MB, less than 100.00% of JavaScript online submissions for House Robber.
 function rob(nums) {  
-    if(nums.length==0) return 0;
-    if(nums.length==1) return nums[0];
+   if(nums.length==0) return 0;
+   if(nums.length==1) return nums[0];
 
-    //Initialize an arrays to store the money
+   //Initialize an arrays to store the money
 	let mark = [];
 
-    //We can infer the formula from problem:mark[i]=max(num[i]+mark[i-2],mark[i-1])
-    //so initialize two nums at first.
+   //We can infer the formula from problem:mark[i]=max(num[i]+mark[i-2],mark[i-1])
+   //so initialize two nums at first.
 	mark[0] = nums[0];
 	mark[1] = Math.max(nums[0], nums[1]);
 
-    //Using Dynamic Programming to mark the max money in loop.
-	for( let i=2;i<nums.length;i++ ){
+   //Using Dynamic Programming to mark the max money in loop.
+	for( let i=2; i<nums.length; i++ ) {
 		mark[i] = Math.max(nums[i]+mark[i-2], mark[i-1]);
-	}
+   };
+   
 	return mark[nums.length-1];
-}
+};
 
-const arr1 = [1,2,3,1]; // 4
-const arr2 = [2,7,9,3,1] // 12
-
+const arr1 = [1,2,3,1];
+const arr2 = [2,7,9,3,1];
 const arr3 = [1, 5, 6, 72, 289, 342, 179, 22, 134];
 const arr4 = [1, 8, 5, 6, 72, 3, 4, 22, 1];
 const arr5 = [1, 5, 6, 72, 289, 399, 2, 134];
 const arr6 = [1, 5, 6, 72, 289, 399, 2, 134];
-// look 4 places down from current index
-// in order to make best decision 
-// 
