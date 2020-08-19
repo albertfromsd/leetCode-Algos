@@ -55,7 +55,6 @@ const floodFill = ( image, startRow, startCol, newColor, ogColor=image[startRow]
 };
 
 
-
 const image1 = [
    [1,1,1],
    [1,1,0],
