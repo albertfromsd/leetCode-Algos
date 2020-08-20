@@ -46,9 +46,7 @@ const checkRecord2 = ( str ) => {
 // Runtime: 72 ms, faster than 64.89% of JavaScript online submissions for Student Attendance Record I.
 // Memory Usage: 37 MB, less than 10.85% of JavaScript online submissions for Student Attendance Record I.
 const checkRecord3 = ( str ) => {
-
    return (str.match(/A/g) || []).length < 2 && (str.match(/LLL/g) || []).length < 1;
-
 };
 
 
