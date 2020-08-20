@@ -1,7 +1,16 @@
-const str1 = "AaBbCcXxYyZz";
+const obj1 = {
+   name: 'a',
+   address: 'asdf',
+};
 
-for( let i=0; i<str1.length; i++ ) {
-   console.log( str1[i] + ": " + str1.charCodeAt(i) );
-}
+const obj2 = {
+   name: 'b',
+   number: 'bsdf',
+};
 
+const obj3 = {
+   name: 'c',
+   address: 'csdf',
+};
 
+console.table( { obj1, obj2, obj3} );
