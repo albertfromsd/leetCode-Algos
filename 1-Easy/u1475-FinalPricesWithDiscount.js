@@ -21,17 +21,14 @@
 // For item 2 with price[2]=6 you will receive a discount equivalent to prices[3]=2, therefore, the final price you will pay is 6 - 2 = 4. 
 // For items 3 and 4 you will not receive any discount at all.
 
-
 // Example 2:
 // Input: prices = [1,2,3,4,5]
 // Output: [1,2,3,4,5]
 // Explanation: In this case, for all items, you will not receive any discount at all.
 
-
 // Example 3:
 // Input: prices = [10,1,1,6]
 // Output: [9,0,1,6]
-
 
 // Constraints:
 // 1 <= prices.length <= 500
@@ -45,13 +42,14 @@ const finalPrices = ( nums ) => {
    for( let i=0; i<nums.length; i++ ) {
 
       for( let j=i+1; j<nums.length; j++ ) {
+         if( j === nums.length-1 ) newNums.push( nums[i] );
+
          if( nums[j] <= nums[i] ) {
             newNums.push( nums[i] - nums[j] );
             break;
          };
          
-         if( j === nums.length-1 ) newNums.push( nums[i] );
-      }
+      };
 
       if( i === nums.length-1 ) newNums.push( nums[i] );
    };
