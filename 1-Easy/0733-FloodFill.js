@@ -37,12 +37,14 @@
 // Runtime: 92 ms, faster than 71.47% of JavaScript online submissions for Flood Fill.
 // Memory Usage: 39.6 MB, less than 25.35% of JavaScript online submissions for Flood Fill.
 const floodFill = ( image, startRow, startCol, newColor, ogColor=image[startRow][startCol] ) => {
-  if( startRow < 0 || 
+   if( 
+      startRow < 0 || 
       startCol < 0 || 
       startRow >= image.length || 
       startCol >= image[0].length || 
       image[startRow][startCol] !== ogColor || 
-      image[startRow][startCol] === newColor ) return image;
+      image[startRow][startCol] === newColor 
+   ) return image;
   
   image[startRow][startCol] = newColor;
   
