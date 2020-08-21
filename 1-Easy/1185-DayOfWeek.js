@@ -5,8 +5,6 @@
 // The input is given as three integers representing the day, month and year respectively.
 // Return the answer as one of the following values {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}.
 
- 
-
 // Example 1:
 // Input: day = 31, month = 8, year = 2019
 // Output: "Saturday"
