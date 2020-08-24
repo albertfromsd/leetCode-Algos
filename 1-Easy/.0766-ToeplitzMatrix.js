@@ -38,7 +38,6 @@
 // What if the matrix is so large that you can only load up a partial row into the memory at once?
 
 const toeplitzCheck = ( matrix ) => {
-   
    const beenVisited = JSON.parse( JSON.stringify(matrix) );
 
    for( let i=0; i<matrix.length; i++ ) {
@@ -47,7 +46,7 @@ const toeplitzCheck = ( matrix ) => {
 
             beenVisited[i][j] = true;
             checkHelper( i+1, j+1, matrix[i][j] );
-         }; 
+         };
       };
    };
 
@@ -67,6 +66,53 @@ const toeplitzCheck = ( matrix ) => {
 
    return true;
 };
+
+// Runtime: 116 ms, faster than 17.85% of JavaScript online submissions for Toeplitz Matrix.
+// Memory Usage: 38.5 MB, less than 38.81% of JavaScript online submissions for Toeplitz Matrix.
+function toeplitzMatrix(matrix){
+
+   let rLength = matrix[0].length;
+   let cLength = matrix.length;
+
+   if(rLength == 1 || matrix.length == 1){
+       return true;
+   }
+
+   for(let r=0; r<rLength-1; r++){
+       let number = matrix[0][r];
+       let testR = r+1;
+       let testC = 1;
+       while(testR < rLength && testC < cLength ){
+           if(matrix[testC][testR] != number){
+               return false
+           }
+           testR++;
+           testC++;
+       }
+   }
+
+   for(let c=1; c<matrix.length-1; c++){
+       number = matrix[c][0]
+       testC = c+1;
+       testR = 1;
+       while(testC < cLength && testR < rLength){
+           if(matrix[testC][testR] != number){
+               return false;
+           }
+           testR++;
+           testC++;
+       }
+   }
+   
+   return true
+}
+
+let matrix = [
+     [1,2],
+     [1,2]
+   ]
+
+console.log(toeplitzMatrix(matrix))
 
 const matrix1 = [
    [1,2],

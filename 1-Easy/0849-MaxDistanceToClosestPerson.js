@@ -1,5 +1,7 @@
 // 849 Easy
-// https://leetcode.com/problems/maximize-distance-to-closest-person/In a row of seats, 1 represents a person sitting in that seat, and 0 represents that the seat is empty. 
+// https://leetcode.com/problems/maximize-distance-to-closest-person/
+
+// In a row of seats, 1 represents a person sitting in that seat, and 0 represents that the seat is empty. 
 
 // There is at least one empty seat, and at least one person sitting.
 // Alex wants to sit in the seat such that the distance between him 

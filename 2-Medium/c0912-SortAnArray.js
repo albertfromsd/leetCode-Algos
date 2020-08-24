@@ -17,7 +17,7 @@
 // 1 <= nums.length <= 50000
 // -50000 <= nums[i] <= 50000
 
-// [ Cheating Method]
+
 // Runtime: 92 ms, faster than 90.08% of JavaScript online submissions for Sort an Array.
 // Memory Usage: 42.4 MB, less than 42.86% of JavaScript online submissions for Sort an Array.
 function sortArray0( arr ) {
@@ -29,7 +29,6 @@ const arr1 = [5, 2, 3, 1];
 console.log( sortArray0(arr1) );
 
 
-// manual method - TERRIBLE
 // Runtime: 3692 ms, faster than 7.84% of JavaScript online submissions for Sort an Array.
 // Memory Usage: 44.3 MB, less than 42.86% of JavaScript online submissions for Sort an Array.
 function sortArray1( arr ) {

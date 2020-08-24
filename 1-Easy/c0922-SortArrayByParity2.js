@@ -25,8 +25,11 @@ const sortArray = arr => {
    const newArr = [];
    let i = 0;
    while( oddsArr.length || evensArr.length ) {
-      if( i%2 === 0 ) newArr.push( evensArr.pop() );
-      else newArr.push( oddsArr.pop() );
+      if( i%2 === 0 ) {
+         newArr.push( evensArr.pop() );
+      } else {
+         newArr.push( oddsArr.pop() );
+      };
 
       i++;
    };
@@ -37,4 +40,4 @@ const sortArray = arr => {
 
 const nums1 = [4,2,5,7];
 
-sortArray(nums1);
+sortArray( nums1 );

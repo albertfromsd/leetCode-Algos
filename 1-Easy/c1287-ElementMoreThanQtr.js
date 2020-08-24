@@ -27,9 +27,10 @@ function moreThanQuarter( arr ) {
             freqTracker[arr[i]] = ( freqTracker[arr[i]] || 0 ) + 1;
             
             if( freqTracker[arr[i]] > arr.length/4 ) return arr[i];
-        } else {
-            continue;
-        };
+        } 
+      //   else {
+      //       continue;
+      //   };
     };
 };
 
