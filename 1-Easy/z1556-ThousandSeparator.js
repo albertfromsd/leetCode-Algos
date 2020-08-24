@@ -3,7 +3,6 @@
 
 // Given an integer n, add a dot (".") as the thousands separator and return it in string format.
 
-
 // Example 1:
 // Input: n = 987
 // Output: "987"
@@ -45,6 +44,8 @@ const thousandSeparator = num => {
 };
 
 
+// Runtime: 80 ms, faster than 77.54% of JavaScript online submissions for Thousand Separator.
+// Memory Usage: 36.6 MB, less than 73.26% of JavaScript online submissions for Thousand Separator.
 const thousandSeparator2 = num => {
    const numString = num.toString(10);
 
@@ -54,11 +55,8 @@ const thousandSeparator2 = num => {
    let i = numString.length;
    let j = numString.length-1-2;
    while( i > 0 ) {
-      if( j > 0 ) {
-         finalStr = '.' + numString.substring( j, i ) + finalStr
-      } else {
-         finalStr = numString.substring( 0, i ) + finalStr;
-      };
+      if( j > 0 ) finalStr = '.' + numString.substring( j, i ) + finalStr;
+      else finalStr = numString.substring( 0, i ) + finalStr;
 
       i -= 3;
       j -= 3;
