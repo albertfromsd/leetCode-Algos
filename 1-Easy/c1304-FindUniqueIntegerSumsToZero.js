@@ -19,10 +19,10 @@
 // Constraints:
 // 1 <= n <= 1000
 
-// Runtime: 92 ms, faster than 30.64% of JavaScript online submissions for Find N Unique Integers Sum up to Zero.
-// Memory Usage: 36.9 MB, less than 59.00% of JavaScript online submissions for Find N Unique Integers Sum up to Zero.
+// Runtime: 80 ms, faster than 64.18% of JavaScript online submissions for Find N Unique Integers Sum up to Zero.
+// Memory Usage: 37.4 MB, less than 19.67% of JavaScript online submissions for Find N Unique Integers Sum up to Zero.
 const findUniqueSumToZero = length => {
-   if( typeof length !== Number ) return console.log('Argument must be a number' );
+   if( !length ) return;
 
    let finalArr = [];
    let i = Math.floor(length/2);
@@ -38,4 +38,4 @@ const findUniqueSumToZero = length => {
 
 };
 
-findUniqueSumToZero();
+findUniqueSumToZero( 1 );

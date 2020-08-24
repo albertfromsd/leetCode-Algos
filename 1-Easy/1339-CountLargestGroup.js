@@ -25,3 +25,49 @@
  
 // Constraints:
 // 1 <= n <= 10^4
+
+// Runtime: 88 ms, faster than 76.85% of JavaScript online submissions for Count Largest Group.
+// Memory Usage: 38.9 MB, less than 57.41% of JavaScript online submissions for Count Largest Group.
+const countLargestGroup = num => {
+   if( num < 10 ) return num;
+
+   let sumTracker = {
+      1: [1],
+      2: [2],
+      3: [3],
+      4: [4],
+      5: [5],
+      6: [6],
+      7: [7],
+      8: [8],
+      9: [9],
+   };
+
+   let maxLength = 0;
+
+   for( let i=10; i<=num; i++ ) {
+      let sum = 0;
+      let tempNum = i;
+      while( tempNum > 0 ) {
+         sum += tempNum % 10;
+         tempNum = Math.floor(tempNum/10);
+      };
+      
+      if( sumTracker[sum] ) sumTracker[sum].push( i );
+      else sumTracker[sum] = [ i ];
+
+      if( sumTracker[sum].length > maxLength ) {
+         maxLength = sumTracker[sum].length;
+      };
+   };
+
+   let count = 0;
+   for (const sum in sumTracker) {
+      if( sumTracker[sum].length === maxLength ) count++;
+   }
+
+   console.log( count );
+   return count;
+};
+
+countLargestGroup(24);
