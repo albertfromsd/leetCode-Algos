@@ -26,8 +26,10 @@
 // Constraints:
 // 1 <= n <= 10^4
 
-// Runtime: 88 ms, faster than 76.85% of JavaScript online submissions for Count Largest Group.
-// Memory Usage: 38.9 MB, less than 57.41% of JavaScript online submissions for Count Largest Group.
+
+
+// Runtime: 80 ms, faster than 91.67% of JavaScript online submissions for Count Largest Group.
+// Memory Usage: 39.2 MB, less than 56.48% of JavaScript online submissions for Count Largest Group.
 const countLargestGroup = num => {
    if( num < 10 ) return num;
 
@@ -46,8 +48,7 @@ const countLargestGroup = num => {
    let maxLength = 0;
 
    for( let i=10; i<=num; i++ ) {
-      let sum = 0;
-      let tempNum = i;
+      let sum = 0, tempNum = i;
       while( tempNum > 0 ) {
          sum += tempNum % 10;
          tempNum = Math.floor(tempNum/10);
@@ -62,7 +63,7 @@ const countLargestGroup = num => {
    };
 
    let count = 0;
-   for (const sum in sumTracker) {
+   for( const sum in sumTracker ) {
       if( sumTracker[sum].length === maxLength ) count++;
    }
 
