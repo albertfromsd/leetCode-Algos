@@ -26,14 +26,19 @@
 // Memory Usage: 37.2 MB, less than 32.28% of JavaScript online submissions for Unique Number of Occurrences.
 const findUniqueNums = nums => {
    let numCounter = {};
-   nums.forEach( num => numCounter[num] = numCounter[num]+1 || 1 );
+   nums.forEach( num => {
+      numCounter[num] = numCounter[num]+1 || 1 
+   });
 
    let countTracker = {};
    for( const num in numCounter ) {
       if( numCounter.hasOwnProperty(num) ) {
 
-         if( !countTracker[ numCounter[num] ] ) countTracker[ numCounter[num] ] = true;
-         else return false;
+         if( !countTracker[numCounter[num]] ) {
+            countTracker[numCounter[num]] = true;
+         } else {
+            return false;
+         };
       };
    };
    return true;

@@ -16,9 +16,29 @@
 // Each arr2[i] is distinct.
 // Each arr2[i] is in arr1.
 
-function relativeSort( arr1, arr2 ) {
 
+// Runtime: 76 ms, faster than 78.87% of JavaScript online submissions for Relative Sort Array.
+// Memory Usage: 37 MB, less than 47.66% of JavaScript online submissions for Relative Sort Array.
+function relativeSort( arr1, arr2 ) {
+   const arr1copy = [...arr1];
+   
+   let newArr = [];
+   for( let i=0; i<arr2.length; i++ ) {
+      
+      while( arr1.indexOf(arr2[i]) !== -1 ) {
+         let numIndex = arr1.indexOf(arr2[i]);
+         newArr.push( arr1[numIndex] )
+         arr1[numIndex] = false;
+      };
+   };
+
+   const arr1leftover = arr1.filter( val => val !== false );
+   const finalArr = newArr.concat( arr1leftover.sort((a,b) => a-b) );
+
+   return finalArr;
 };
 
 const arr1 = [2,3,1,3,2,4,6,7,9,2,19];
 const arr2 = [2,1,4,3,9,6];
+
+relativeSort( arr1, arr2 );
