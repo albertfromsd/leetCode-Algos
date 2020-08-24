@@ -30,7 +30,9 @@ const removeDuplicates = str => {
 
    let i = 0;
    while( i < strArr.length ) {
-      
+      if( strArr[i] === strArr[i+1] ) {
+         
+      }
    }
 
 };

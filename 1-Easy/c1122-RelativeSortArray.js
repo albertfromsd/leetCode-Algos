@@ -20,8 +20,6 @@
 // Runtime: 76 ms, faster than 78.87% of JavaScript online submissions for Relative Sort Array.
 // Memory Usage: 37 MB, less than 47.66% of JavaScript online submissions for Relative Sort Array.
 function relativeSort( arr1, arr2 ) {
-   const arr1copy = [...arr1];
-   
    let newArr = [];
    for( let i=0; i<arr2.length; i++ ) {
       

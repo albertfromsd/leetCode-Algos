@@ -25,7 +25,12 @@
 const findCommonChars = words => {
 
    const wordSorted = words.sort( (a, b) => b.length - a.length );
-   console.log( wordSorted );
+   
+   let charTracker = {};
+   for( let i=0; i<wordSorted[0].length; i++ ) {
+      const char = wordSorted[0][i];
+      charTracker[char] = charTracker[char]+1 || 0;
+   }
 
 };
 
