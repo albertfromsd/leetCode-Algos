@@ -35,8 +35,8 @@
 const checkForDouble = nums => {
 
    for( let i=0; i<nums.length; i++ ) {
-      let doubleIndex = nums.indexOf( nums[i]*2 );
-      if( doubleIndex !== -1 && doubleIndex !== i ) return true;
+      let indexOfDouble = nums.indexOf( nums[i]*2 );
+      if( indexOfDouble !== -1 && indexOfDouble !== i ) return true;
    };
 
    return false;
