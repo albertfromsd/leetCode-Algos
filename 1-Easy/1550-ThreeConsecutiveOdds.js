@@ -22,7 +22,7 @@
 // Runtime: 76 ms, faster than 69.44% of JavaScript online submissions for Three Consecutive Odds.
 // Memory Usage: 36.6 MB, less than 66.67% of JavaScript online submissions for Three Consecutive Odds.
 const threeConsecutiveOdds = nums => {
-   if( nums.filter( num => num%2 !== 0 ).length < 3 ) return false;
+   // if( nums.filter( num => num%2 !== 0 ).length < 3 ) return false;
 
    let oddCount = 0;
    let i = 0;
