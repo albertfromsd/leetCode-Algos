@@ -30,23 +30,19 @@ const countOdds1 = ( start, end ) => {
 
 
 
-// Runtime: 76 ms, faster than 81.03% of JavaScript online submissions for Count Odd Numbers in an Interval Range.
-// Memory Usage: 36.2 MB, less than 87.35% of JavaScript online submissions for Count Odd Numbers in an Interval Range.
+// Runtime: 68 ms, faster than 97.13% of JavaScript online submissions for Count Odd Numbers in an Interval Range.
+// Memory Usage: 36.4 MB, less than 71.84% of JavaScript online submissions for Count Odd Numbers in an Interval Range.
 const countOdds2 = ( start, end ) => {
-   let oddCount = 0;
-   if( start%2 !== 0 ) oddCount += 0.5;
-   if( end%2 !== 0) oddCount += 0.5;
-
-   oddCount += (end-start)/2;
-   return Math.floor(oddCount);
+   let oddCount = (start%2)/2 + (end%2)/2 + (end-start)/2;
+   return oddCount;
 };
 
 
 
-// Runtime: 80 ms, faster than 70.11% of JavaScript online submissions for Count Odd Numbers in an Interval Range.
-// Memory Usage: 36.2 MB, less than 88.50% of JavaScript online submissions for Count Odd Numbers in an Interval Range.
+// Runtime: 76 ms, faster than 81.03% of JavaScript online submissions for Count Odd Numbers in an Interval Range.
+// Memory Usage: 36.3 MB, less than 83.33% of JavaScript online submissions for Count Odd Numbers in an Interval Range.
 const countOdds3 = ( start, end ) => {
-   return Math.floor( ((end-start) / 2) + ((start%2) / 2) + ((end%2) / 2) );
+   return (end-start)/2 + (start%2)/2 + (end%2)/2;
 };
 
 
