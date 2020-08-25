@@ -43,7 +43,7 @@ const replaceWithLargestAfter2 = arr => {
       arr[i] = Math.max( ...arr.slice(i+1) );
    };
    arr[arr.length-1] = -1;
-
+   console.timeEnd( 'replaceWithLargestAfter2' );
    return arr;
 };
 
@@ -64,11 +64,12 @@ const replaceWithLargestAfter3 = arr => {
    };
 
    arrCopy[arrLength-1] = -1;
-
-   // console.log( arrCopy );
+   console.log( arrCopy );
    console.timeEnd( 'replaceWithLargestAfter3' );
    return arrCopy;
 };
 
 const arr1 = [17,18,5,4,6,1]; // [18,6,6,6,1,-1]
-replaceWithLargestAfter3( arr1 );
+// replaceWithLargestAfter1( arr1 );
+// replaceWithLargestAfter2( arr1 );
+// replaceWithLargestAfter3( arr1 );
