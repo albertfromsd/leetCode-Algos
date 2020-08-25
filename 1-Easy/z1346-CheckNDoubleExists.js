@@ -28,3 +28,24 @@
 // Constraints:
 // 2 <= arr.length <= 500
 // -10^3 <= arr[i] <= 10^3
+
+
+// Runtime: 76 ms, faster than 76.43% of JavaScript online submissions for Check If N and Its Double Exist.
+// Memory Usage: 36.8 MB, less than 60.18% of JavaScript online submissions for Check If N and Its Double Exist.
+const checkForDouble = nums => {
+
+   for( let i=0; i<nums.length; i++ ) {
+      let indexOfDouble = nums.indexOf( nums[i]*2 );
+      if( indexOfDouble !== -1 && indexOfDouble !== i ) return true;
+   };
+
+   return false;
+};
+
+const arr1 = [10, 2, 5, 3];
+const arr2 = [7, 1, 14, 11];
+const arr3 = [3, 1, 7, 11];
+const arr4 = [10, 2, 7, 3, 6];
+const arr5 = [-2, 0, 10, -19, 4, 6, -8];
+
+console.log( checkForDouble(arr5) );
