@@ -23,7 +23,8 @@
 // Memory Usage: 36.6 MB, less than 66.67% of JavaScript online submissions for Three Consecutive Odds.
 const threeConsecutiveOdds = nums => {
    // if( nums.filter( num => num%2 !== 0 ).length < 3 ) return false;
-
+   console.time( 'threeConsecutiveOdds' );
+   
    let oddCount = 0;
    let i = 0;
    while( i < nums.length ) {
@@ -37,6 +38,7 @@ const threeConsecutiveOdds = nums => {
       i++;
    };
 
+   console.timeEnd( 'threeConsecutiveOdds' );
    return false;
 };
 
