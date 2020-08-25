@@ -26,15 +26,17 @@
 // Memory Usage: 39.9 MB, less than 34.60% of JavaScript online submissions for Valid Mountain Array.
 const validMountainArray = numsArr => {
     console.time( 'validMountainArray' );
-    let n = numsArr.length;
+    if( numsArr.length < 3 ) return false;
+    
+    let length = numsArr.length;
     let i = 0;
-    let j = n-1;
+    let j = length-1;
 
-    while( i+1 < n && numsArr[i] < numsArr[i+1] ) i++;
+    while( i+1 < length && numsArr[i] < numsArr[i+1] ) i++;
     while( 0 <= j-1 && numsArr[j] < numsArr[j-1] ) j--;
 
     console.timeEnd( 'validMountainArray' );
-    return 0<i && i == j && j < n-1;
+    return 0<i && i == j && j < length-1;
 };
 
 
