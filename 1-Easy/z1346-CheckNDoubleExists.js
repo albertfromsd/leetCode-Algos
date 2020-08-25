@@ -42,7 +42,6 @@ const checkForDouble = nums => {
    return false;
 };
 
-
 const arr1 = [10, 2, 5, 3];
 const arr2 = [7, 1, 14, 11];
 const arr3 = [3, 1, 7, 11];
