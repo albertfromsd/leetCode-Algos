@@ -51,7 +51,7 @@ const findAvgSalary = salaries => {
 
 
 // Runtime: 72 ms, faster than 68.57% of JavaScript online submissions for Average Salary Excluding the Minimum and Maximum Salary.
-// Memory Usage: 36.7 MB, less than 13.95% of JavaScript online submissions for Average Salary Excluding the Minimum and Maximum Salary.
+// Memory Usage: 36.3 MB, less than 40.56% of JavaScript online submissions for Average Salary Excluding the Minimum and Maximum Salary.
 const findAvgSalary2 = salaries => {
    if( salaries.length < 3 ) return 0;
 
