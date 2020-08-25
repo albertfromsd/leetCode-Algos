@@ -116,6 +116,7 @@ const countOddCell2 = ( n, m, indices ) => {
 // Runtime: 80 ms, faster than 74.11% of JavaScript online submissions for Cells with Odd Values in a Matrix.
 // Memory Usage: 37.5 MB, less than 67.26% of JavaScript online submissions for Cells with Odd Values in a Matrix.
 const countOddCells3 = ( n, m, indices ) => {
+   console.time( 'countOddCells3' );
    let ogArray = [];
    for( let i=0; i<n; i++ ) {
       let subArray = new Array(m).fill(0);
@@ -143,10 +144,11 @@ const countOddCells3 = ( n, m, indices ) => {
 
    };
 
-   console.log( ogArray );
-   console.log( oddCount );
+   // console.log( ogArray );
+   // console.log( oddCount );
+   console.timeEnd( 'countOddCells3' );
 
    return oddCount;
 };
 
-countOddCells(2, 3, [ [0,1], [1,1] ]);
+countOddCells3(2, 3, [ [0,1], [1,1] ]);
