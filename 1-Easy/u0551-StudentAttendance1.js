@@ -18,6 +18,7 @@
 // Output: False
 
 
+
 // Runtime: 76 ms, faster than 51.28% of JavaScript online submissions for Student Attendance Record I.
 // Memory Usage: 36.8 MB, less than 22.49% of JavaScript online submissions for Student Attendance Record I.
 const checkRecord = ( str ) => {
@@ -26,10 +27,12 @@ const checkRecord = ( str ) => {
 
    for( let i=0; i<str.length; i++ ) {
       if( str[i] === 'A' ) {
+
          if( aExists === true ) return false;
          else aExists = true;
 
       } else if( str[i] === 'L' ) {
+         
          if( i+2 > str.length-1 ) return true;
          else if( str[i+1] === 'L' && str[i+2] === 'L' ) return false;
       };
