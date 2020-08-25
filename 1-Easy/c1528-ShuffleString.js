@@ -42,12 +42,15 @@
 // Runtime: 92 ms, faster than 49.85% of JavaScript online submissions for Shuffle String.
 // Memory Usage: 38.2 MB, less than 72.40% of JavaScript online submissions for Shuffle String.
 const decodeString = ( str, indices ) => {
+   console.time( 'decodeStr' );
+   
    let finalStr = '';
    for( let i=0; i<indices.length; i++ ) {
       let indexPosition = indices.indexOf(i);
       finalStr += str[indexPosition];
    };
    console.log( {finalStr} );
+   console.timeEnd( 'decodeStr' );
    return finalStr;
 };
 
@@ -56,6 +59,8 @@ const decodeString = ( str, indices ) => {
 // Runtime: 92 ms, faster than 49.85% of JavaScript online submissions for Shuffle String.
 // Memory Usage: 38.2 MB, less than 82.20% of JavaScript online submissions for Shuffle String.
 const decodeString2 = ( str, indices ) => {
+   console.time( 'decodeStr2' );
+   
    let strArr = [];
    
    for( let i=0; i<indices.length; i++ ) {
@@ -64,10 +69,10 @@ const decodeString2 = ( str, indices ) => {
    };
 
    let finalStr = strArr.join('');
-   console.log( finalStr );
+   console.log( {finalStr} );
+   console.timeEnd( 'decodeStr2' );
    return finalStr;
 };
-
 
 
 const str1 = "codeleet"

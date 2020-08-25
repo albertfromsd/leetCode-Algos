@@ -37,39 +37,11 @@
 // you can only load at most one row of the matrix into the memory at once?
 // What if the matrix is so large that you can only load up a partial row into the memory at once?
 
-const toeplitzCheck = ( matrix ) => {
-   const beenVisited = JSON.parse( JSON.stringify(matrix) );
 
-   for( let i=0; i<matrix.length; i++ ) {
-      for( let j=0; j<matrix[0].length; j++ ) {
-         if( beenVisited[i][j] !== true ) {
-
-            beenVisited[i][j] = true;
-            checkHelper( i+1, j+1, matrix[i][j] );
-         };
-      };
-   };
-
-   function checkHelper( row, col, target ) {
-      if( row > matrix.length-1 || col > matrix[0].length-1 ) return;
-      if( matrix[row][col] !== target ) return false;
-      
-      if( beenVisited[row][col] === true ) return;
-      else beenVisited[row][col] = true;
-      
-      if( matrix[row][col] === target ) {
-         checkHelper( row+1, col+1 );
-      } else {
-         return false;
-      };
-   };
-
-   return true;
-};
 
 // Runtime: 116 ms, faster than 17.85% of JavaScript online submissions for Toeplitz Matrix.
 // Memory Usage: 38.5 MB, less than 38.81% of JavaScript online submissions for Toeplitz Matrix.
-function toeplitzMatrix(matrix){
+function toeplitzMatrixAya(matrix){
 
    let rLength = matrix[0].length;
    let cLength = matrix.length;
@@ -105,14 +77,46 @@ function toeplitzMatrix(matrix){
    }
    
    return true
-}
+};
+
+
+
+const toeplitzCheck2 = ( matrix ) => {
+   let cols = matrix[0].length;
+   let rows = matrix.length;
+
+   if(cols == 1 || rows == 1){
+       return true;
+   }
+
+   let rowCopy = [ ...matrix[0] ];
+   for(let r=1; r<rows-1; r++){
+       rowCopy.pop();
+       if( matrix[r].slice(r) != rowCopy ) return false;
+   };
+
+   
+   for(let c=1; c<cols-1; c++){
+      number = matrix[c][0]
+      let testC = c+1;
+      let testR = 1;
+      while(testC < cLength && testR < rLength){
+          if(matrix[testC][testR] != number){
+              return false;
+          }
+          testR++;
+          testC++;
+      }
+  }
+   
+   return true
+};
 
 let matrix = [
      [1,2],
      [1,2]
    ]
 
-console.log(toeplitzMatrix(matrix))
 
 const matrix1 = [
    [1,2],
@@ -130,5 +134,6 @@ const matrix3 = [
    [40,11,74,7]
 ]; // false
 
+console.log(toeplitzMatrixAya(matrix));
 
-console.log( toeplitzCheck(matrix1) );
+console.log( toeplitzCheck2(matrix) );
