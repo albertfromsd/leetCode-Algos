@@ -151,7 +151,7 @@ const findCommonChars3 = words => {
 
 };
 
-
+// https://leetcode.com/problems/find-common-characters/discuss/250620/short-javascript-solution
 // Runtime: 76 ms, faster than 97.15% of JavaScript online submissions for Find Common Characters.
 // Memory Usage: 38.7 MB, less than 83.77% of JavaScript online submissions for Find Common Characters.
 const findCommonChars4 = A => {
@@ -162,11 +162,39 @@ const findCommonChars4 = A => {
            let ind = tempChars.indexOf(char);
            return ind > -1 ? tempChars[ind] = true : false;
        });
-   }
+   };
+   // console.log( originalChars );
    return originalChars;
 };
 
 const words1 = ["bella","label","roller"];
 const words2 = ["cool","lock","cook"];
+
+// https://leetcode.com/problems/find-common-characters/discuss/250620/short-javascript-solution
+// - Similar to above but with more explicit if statements
+// - Note runtime performance difference between the two
+// Runtime: 108 ms, faster than 55.92% of JavaScript online submissions for Find Common Characters.
+// Memory Usage: 38.6 MB, less than 86.40% of JavaScript online submissions for Find Common Characters.
+var commonChars = function(A) {
+   let start = A[0].split('');
+    
+    for(let word of A) {
+        const chars = word.split('');
+        start = start.filter(sChar => {
+            const idx = chars.indexOf(sChar);
+            
+            // if the char has been found, set it a value so it doesnt get discovered again
+            if (idx > -1) {
+                chars[idx] = 'found';
+                return true;
+            }
+            
+            return false;
+        });
+    }
+    
+   //  console.log( start );
+    return start;
+};
 
 findCommonChars4( words1 );
