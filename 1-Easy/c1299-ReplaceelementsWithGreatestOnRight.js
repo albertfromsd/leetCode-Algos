@@ -14,6 +14,7 @@
 // 1 <= arr[i] <= 10^5
 
 
+
 // Runtime: 124 ms, faster than 56.64% of JavaScript online submissions for Replace Elements with Greatest Element on Right Side.
 // Memory Usage: 40.2 MB, less than 41.87% of JavaScript online submissions for Replace Elements with Greatest Element on Right Side.
 const replaceWithLargestAfter1 = arr => {
@@ -23,7 +24,6 @@ const replaceWithLargestAfter1 = arr => {
       if( arr[i] > maxTracker[0] || !maxTracker.length ) maxTracker.unshift( arr[i] );
       else maxTracker.unshift( maxTracker[0] );
    };
-   // console.log( maxTracker );
    
    for( let i=0; i<arr.length-1; i++ ) {
       arr[i] = maxTracker[i+1];
@@ -34,6 +34,8 @@ const replaceWithLargestAfter1 = arr => {
    console.timeEnd( 'replaceWithLargestAfter1' );
    return arr;
 };
+
+
 
 // Runtime: 1524 ms, faster than 5.01% of JavaScript online submissions for Replace Elements with Greatest Element on Right Side.
 // Memory Usage: 44.1 MB, less than 15.30% of JavaScript online submissions for Replace Elements with Greatest Element on Right Side.
@@ -48,8 +50,9 @@ const replaceWithLargestAfter2 = arr => {
 };
 
 
+
 // Runtime: 108 ms, faster than 68.15% of JavaScript online submissions for Replace Elements with Greatest Element on Right Side.
-// Memory Usage: 38.6 MB, less than 98.70% of JavaScript online submissions for Replace Elements with Greatest Element on Right Side.
+// Memory Usage: 40 MB, less than 48.00% of JavaScript online submissions for Replace Elements with Greatest Element on Right Side.
 const replaceWithLargestAfter3 = arr => {
    console.time( 'replaceWithLargestAfter3' );
    
@@ -59,8 +62,9 @@ const replaceWithLargestAfter3 = arr => {
 
    for( let i=arrLength-2; i>=0; i-- ) {
       let temp = tempMax;
-      if( arr[i] > tempMax ) tempMax = arr[i];
       arrCopy[i] = Math.max( temp, arr[i+1] );
+      
+      if( arr[i] > tempMax ) tempMax = arr[i];
    };
 
    arrCopy[arrLength-1] = -1;
@@ -68,6 +72,8 @@ const replaceWithLargestAfter3 = arr => {
    console.timeEnd( 'replaceWithLargestAfter3' );
    return arrCopy;
 };
+
+
 
 const arr1 = [17,18,5,4,6,1]; // [18,6,6,6,1,-1]
 // replaceWithLargestAfter1( arr1 );
