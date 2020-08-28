@@ -26,42 +26,26 @@
 // 1 <= n <= 100
 
 
-
-// Runtime: 504 ms, faster than 5.66% of JavaScript online submissions for Simplified Fractions.
-// Memory Usage: 43.4 MB, less than 30.19% of JavaScript online submissions for Simplified Fractions.
+// Runtime: 112 ms, faster than 92.45% of JavaScript online submissions for Simplified Fractions.
+// Memory Usage: 42.8 MB, less than 75.47% of JavaScript online submissions for Simplified Fractions.
 function simplifiedFractions( num ) {
 
    let finalArr = [];
 
-   for( let i=num; i>1; i-- ) {
-      for( let j=1; j<num; j++ ) {
-         if( ( j>1 && i%j === 0 ) || j-i >= 0 ) continue;
-
-         let tempI = i, tempJ = j, gcd = findGCD( j, i );
-         if( gcd > 1 ) {
-            tempI = i/gcd;
-            tempJ = j/gcd;
-         };
-
-         let tempStr = `${tempJ}/${tempI}`;
-         if( finalArr.indexOf( tempStr ) === -1 ) finalArr.push( tempStr );
+   for( let i=1; i<num; i++ ) {
+      for( let j=i+1; j<=num; j++ ) {
+         if( findGCD( j, i ) === 1 ) finalArr.push( `${i}/${j}` );
       };
    };
 
    function findGCD( x, y ) {
-      if( (typeof x !== 'number') || (typeof y !== 'number') ) return false;
-         x = Math.abs(x);
-         y = Math.abs(y);
-      while(y) {
-         var t = y;
-         y = x % y;
-         x = t;
-      }
-      return x;
-   }
-
+      return x === 0 ? y : findGCD( y%x, x );
+   };
+   
    console.log( finalArr );
    return finalArr;
 };
+
+
 // 6 should output ["1/2","1/3","1/4","1/5","1/6","2/3","2/5","3/4","3/5","4/5","5/6"]
 simplifiedFractions( 6 )
