@@ -42,7 +42,7 @@
 function revealCards1( ogDeck ) {
 
     let newDeck = [];
-    let sortedDeck = [ ...ogDeck.sort( (a, b) => { return a-b } ) ];
+    let sortedDeck = [ ...ogDeck.sort( (a, b) => a-b ) ];
 
     let revealSwitch = true;
     let i = 0;
@@ -63,7 +63,7 @@ function revealCards1( ogDeck ) {
                     revealSwitch = !revealSwitch;
                 };
 
-                i++
+                i++;
                 if( i > newDeck.length-1 ) i = 1;
             };
         };

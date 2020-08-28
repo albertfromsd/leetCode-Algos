@@ -34,14 +34,12 @@ const jumpGame = nums => {
       for( let i=targetIndex-1; i>=0; i-- ) {
          console.log( { i, 'nums[i]':nums[i], targetIndex } );
          
-         if( i === 0 && nums[i] >= targetIndex-i ) return true;
-         if( nums[i] >= targetIndex-i ) return counter( i );
-         // if( nums[i] >= targetIndex-i ) {
-         //    if( i === 0 ) return true;
-         //    else {
-         //       return counter( i );
-         //    };
-         // };
+         // if( nums[i] >= targetIndex-i && i === 0 ) return true;
+         // if( nums[i] >= targetIndex-i ) return counter( i );
+         if( nums[i] >= targetIndex-i ) {
+            if( i === 0 ) return true;
+            else return counter( i );
+         };
       };
       return false;
    };
@@ -50,22 +48,6 @@ const jumpGame = nums => {
    return counter( nums.length-1 );
 };
 
-const jumpGame2 = nums => {
-   if( nums.length === 1 ) return true;
-   if( nums[0] < 1 ) return false;
-
-   function counter( targetIndex ) {
-      if( targetIndex < 1 ) return true;
-      
-      for( let i=targetIndex-1; i>=0; i-- ) {
-         if( i === 0 && nums[i] >= targetIndex-i ) return true;
-         if( nums[i] >= targetIndex-i ) return counter( i );
-      };
-      return false;
-   };
-
-   return counter( nums.length-1 );
-}
 
 const nums1 = [2,3,1,1,4]; // true
 const nums2 = [3,2,1,0,4]; // false
