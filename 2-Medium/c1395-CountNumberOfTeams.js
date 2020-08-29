@@ -28,3 +28,30 @@
 // n == rating.length
 // 1 <= n <= 200
 // 1 <= rating[i] <= 10^5
+
+
+// Runtime: 84 ms, faster than 87.00% of JavaScript online submissions for Count Number of Teams.
+// Memory Usage: 37 MB, less than 28.91% of JavaScript online submissions for Count Number of Teams.
+function countTeams( ratings ) {
+   let teamCount = 0;
+
+   for( let i=0; i<ratings.length-2; i++ ) {
+      for( let j=i+1; j<ratings.length-1; j++ ) {
+         for( let k=j+1; k<ratings.length; k++ ) {
+            if( ratings[i] < ratings[j] && ratings[j] < ratings[k] ) teamCount++;
+            else if( ratings[i] > ratings[j] && ratings[j] > ratings[k] ) teamCount++;
+         };
+      };
+   };
+
+   console.log( teamCount );
+   return teamCount;
+};
+
+const ratings1 = [2,5,3,4,1];
+const ratings2 = [2,1,3];
+const ratings3 = [1,2,3,4];
+
+countTeams( ratings1 );
+countTeams( ratings2 );
+countTeams( ratings3 );

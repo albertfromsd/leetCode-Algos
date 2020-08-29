@@ -68,7 +68,7 @@ function maxAbsValue2(arr1, arr2) {
       getMinMaxDiff(bucket2),
       getMinMaxDiff(bucket3),
       getMinMaxDiff(bucket4),
-  ) );
+   ) );
    return Math.max(
        getMinMaxDiff(bucket1),
        getMinMaxDiff(bucket2),
