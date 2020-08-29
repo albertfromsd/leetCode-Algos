@@ -34,8 +34,6 @@ const jumpGame = nums => {
       for( let i=targetIndex-1; i>=0; i-- ) {
          console.log( { i, 'nums[i]':nums[i], targetIndex } );
          
-         // if( nums[i] >= targetIndex-i && i === 0 ) return true;
-         // if( nums[i] >= targetIndex-i ) return counter( i );
          if( nums[i] >= targetIndex-i ) {
             if( i === 0 ) return true;
             else return counter( i );

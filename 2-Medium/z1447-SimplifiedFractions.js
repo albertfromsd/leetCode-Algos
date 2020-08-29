@@ -27,8 +27,9 @@
 
 
 // Runtime: 112 ms, faster than 92.45% of JavaScript online submissions for Simplified Fractions.
-// Memory Usage: 42.8 MB, less than 75.47% of JavaScript online submissions for Simplified Fractions.
+// Memory Usage: 42.7 MB, less than 77.36% of JavaScript online submissions for Simplified Fractions.
 function simplifiedFractions( num ) {
+   const findGCD = ( x, y ) => x===0 ? y : findGCD( y%x, x );
 
    let finalArr = [];
 
@@ -38,10 +39,6 @@ function simplifiedFractions( num ) {
       };
    };
 
-   function findGCD( x, y ) {
-      return x === 0 ? y : findGCD( y%x, x );
-   };
-   
    console.log( finalArr );
    return finalArr;
 };
