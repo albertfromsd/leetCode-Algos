@@ -23,7 +23,6 @@
 // Runtime: 7488 ms, faster than 42.86% of JavaScript online submissions for Maximum of Absolute Value Expression.
 // Memory Usage: 41.6 MB, less than 40.00% of JavaScript online submissions for Maximum of Absolute Value Expression.
 function maxAbsValue( arr1, arr2 ) {
-
    let maxReturn = -Infinity;
    for( let i=0; i<arr1.length; i++ ) {
       for( let j=0; j<arr2.length; j++ ) {
@@ -33,11 +32,58 @@ function maxAbsValue( arr1, arr2 ) {
    };
    // console.log( maxReturn );
    return maxReturn;
-
 };
+
+// [ copied ]
+// https://leetcode.com/problems/maximum-of-absolute-value-expression/discuss/778296/JavaScript-O(n)-solution
+// Runtime: 96 ms, faster than 97.14% of JavaScript online submissions for Maximum of Absolute Value Expression.
+// Memory Usage: 45 MB, less than 5.72% of JavaScript online submissions for Maximum of Absolute Value Expression.
+function maxAbsValue2(arr1, arr2) {
+   const n = arr1.length;
+   const bucket1 = new Array(n);
+   const bucket2 = new Array(n);
+   const bucket3 = new Array(n);
+   const bucket4 = new Array(n);
+   
+   for(let i = 0; i < n; i++)
+   {
+       bucket1[i] = arr1[i] + arr2[i] + i;
+       bucket2[i] = arr1[i] + arr2[i] - i;
+       bucket3[i] = arr1[i] - arr2[i] + i;
+       bucket4[i] = arr1[i] - arr2[i] - i;
+   }
+
+   function getMinMaxDiff(arr) {
+      let max = Number.NEGATIVE_INFINITY;
+      let min = Number.POSITIVE_INFINITY;
+   
+      for (let i = 0; i < arr.length; i++) {
+          max = Math.max(max, arr[i]);
+          min = Math.min(min, arr[i]);
+      }
+      return max - min;
+   }
+   console.log( Math.max(
+      getMinMaxDiff(bucket1),
+      getMinMaxDiff(bucket2),
+      getMinMaxDiff(bucket3),
+      getMinMaxDiff(bucket4),
+  ) );
+   return Math.max(
+       getMinMaxDiff(bucket1),
+       getMinMaxDiff(bucket2),
+       getMinMaxDiff(bucket3),
+       getMinMaxDiff(bucket4),
+   );
+};
+
+
 
 const arr1 = [1,2,3,4], arr2 = [-1,4,5,6];
 const arr3 = [1,-2,-5,0,10], arr4 = [0,-2,-1,-7,-4];
 
-// maxAbsValue( arr1, arr2 );
+maxAbsValue( arr1, arr2 );
 maxAbsValue( arr3, arr4 );
+
+maxAbsValue2( arr1, arr2 );
+maxAbsValue2( arr3, arr4 );
