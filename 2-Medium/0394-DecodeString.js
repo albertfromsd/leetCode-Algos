@@ -28,3 +28,46 @@
 // Example 4:
 // Input: s = "abc3[cd]xyz"
 // Output: "abccdcdcdxyz"
+
+function decodeString( str ) {
+
+   let tempStr = '';
+   for( let i=0; i<str.length; i++ ) {
+      let char = str[i];
+      let current = '';
+      if( char.charCodeAt(0) > 47 && char.charCodeAt(0) < 58 ) {
+         // numbers
+
+      } else if( 
+         (char.charCodeAt(0) > 65 && char.charCodeAt(0) < 91) 
+         || (char.charCodeAt(0) > 96 && char.charCodeAt(0) < 123 ) 
+      ) {
+         // capital letters || lowercase letters
+
+      } else if( char.charCodeAt(0) === 91 ) {
+         // '['
+         
+      } else if( char.charCodeAt(0) === 93 ) {
+         // ']'
+      }
+   };
+
+};
+
+function mapCharCodes() {
+   let map = {};
+   for( let i=0; i<128; i++ ) {
+      let char = String.fromCharCode(i);
+      map[i] = char;
+   };
+   console.log( map );
+   return map;
+};
+
+const str1 = "3[a]2[bc]";
+const str2 = "3[a2[c]]";
+const str3 = "2[abc]3[cd]ef";
+const str4 = "2[abc]3[cd]ef";
+const str5 = "abc3[cd]xyz";
+
+mapCharCodes();
