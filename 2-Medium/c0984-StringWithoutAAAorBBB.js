@@ -24,16 +24,12 @@
 
 
 // Runtime: 76 ms, faster than 76.25% of JavaScript online submissions for String Without AAA or BBB.
-// Memory Usage: 37.9 MB, less than 12.50% of JavaScript online submissions for String Without AAA or BBB.
+// Memory Usage: 37.4 MB, less than 16.25% of JavaScript online submissions for String Without AAA or BBB.
 function stringAsBs( A, B ) {
    let finalStr = '';
 
-   let firstChar = 'a';
-   let secondChar = 'b';
-   if( B > A ) {
-      [A, B] = [B, A];
-      [ firstChar, secondChar ] = [ secondChar, firstChar ];
-   };
+   let char1 = 'a', char2 = 'b';
+   if( B > A ) [A, B, char1, char2] = [B, A, char2, char1];
 
    let freq = A-B > 1 ? 2 : 1;
    while( A || B ) {
@@ -41,16 +37,45 @@ function stringAsBs( A, B ) {
       
       let endI = Math.min( A, freq );
       for( let i=0; i<endI; i++, A-- ) {
-         finalStr += firstChar;
+         finalStr += char1;
       };
    
       let endJ = Math.min( B, 1 );
       for( let j=0; j<endJ; j++, B-- ) {
-         finalStr += secondChar;
+         finalStr += char2;
       };
    };
    console.log( {finalStr} );
    return finalStr;
+};
+
+
+// [ copied ]
+// https://leetcode.com/problems/string-without-aaa-or-bbb/submissions/
+// Runtime: 76 ms, faster than 76.25% of JavaScript online submissions for String Without AAA or BBB.
+// Memory Usage: 37 MB, less than 47.50% of JavaScript online submissions for String Without AAA or BBB.
+var strWithout3a3b = function(A, B) {
+   var result = "";
+    var set = (A>=B)?"ab":"ba";
+    var min = (A >= B)?B:A;
+    var dif = Math.abs(A-B);
+    for(var i=0;i<min;i++){
+        if(dif > 0){
+            if(A >= B){
+                result += 'a'; 
+            }else{
+                result += 'b';
+            }
+            dif--;
+        }
+        result += set;
+    }
+    if(dif > 0){
+        for(var j=0;j<dif;j++){
+            result += (A>=B)?'a':'b';
+        }
+    }
+    return result;
 };
 
 // stringAsBs( 1, 1 );
