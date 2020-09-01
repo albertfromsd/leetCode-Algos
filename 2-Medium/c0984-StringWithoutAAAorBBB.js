@@ -49,6 +49,23 @@ function stringAsBs( A, B ) {
    return finalStr;
 };
 
+function stringNo3a3b( A, B ) {
+   let newArr = new Array(A+B).fill(null);
+   let char1 = 'a', char2 = 'b';
+   if(B>A ) [ A, B, char1, char2 ] = [ B, A, char2, char1 ];
+
+   let freq = A-B > 1 ? 2 : 1;
+   while( A || B ) {
+      if( A-B < 2 ) freq = 1;
+      // enter switch for character here
+      for( let i=0; i<A+B; i++ ) {
+         // add items to array then .join('')
+         // don't know if that will be efficient but worth experimenting and seeing
+      };
+   }
+
+};
+
 
 // [ copied ]
 // https://leetcode.com/problems/string-without-aaa-or-bbb/submissions/
