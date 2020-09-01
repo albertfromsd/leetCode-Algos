@@ -1,4 +1,4 @@
-// 121 Easy
+// 122 Easy
 // https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 // Say you have an array for which the ith element is the price of a given stock on day i.
@@ -39,17 +39,18 @@ function BestTimeToBuySellStock(arr) {
     return maxProfit;
 };
 
-// from googlesoftwareengineer
-// review code and see what the lines inside forloop do
-// var maxProfit = function(prices) {
-//     let currentLow = prices[0];
-//     let maxProfit = 0;
-//     for (let i = 1; i < prices.length; i++) {
-//         currentLow = Math.min(currentLow, prices[i]);
-//         maxProfit = Math.max(maxProfit, prices[i] - currentLow)
-//     }
-//     return maxProfit
-// }
+// [ copied ]
+// Runtime: 80 ms, faster than 74.23% of JavaScript online submissions for Best Time to Buy and Sell Stock.
+// Memory Usage: 37.4 MB, less than 51.65% of JavaScript online submissions for Best Time to Buy and Sell Stock.
+var maxProfit = function(prices) {
+    let currentLow = prices[0];
+    let maxProfit = 0;
+    for (let i = 1; i < prices.length; i++) {
+        currentLow = Math.min(currentLow, prices[i]);
+        maxProfit = Math.max(maxProfit, prices[i] - currentLow)
+    }
+    return maxProfit
+}
 
 
 const arr1 = [7, 6, 4, 3, 1];

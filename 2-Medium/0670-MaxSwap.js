@@ -17,3 +17,16 @@
 
 // Note:
 // The given number is in the range [0, 108]
+
+function maxSwap(num ) {
+
+   let maxDiff = 0;
+   let numStr = num.toString();
+   for( let i=0; i<numStr.length; i++ ) {
+      
+   };
+
+};
+
+const num1 = 2736;
+const num2 = 9973;

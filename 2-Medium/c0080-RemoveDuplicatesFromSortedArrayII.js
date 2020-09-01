@@ -31,3 +31,28 @@
 // for (int i = 0; i < len; i++) {
 //     print(nums[i]);
 // }
+
+
+
+// Runtime: 84 ms, faster than 85.29% of JavaScript online submissions for Remove Duplicates from Sorted Array II.
+// Memory Usage: 38.8 MB, less than 28.06% of JavaScript online submissions for Remove Duplicates from Sorted Array II.
+function removeDupes( nums ) {
+   let i = nums.length-1;
+   while( i >= 2 ) {
+      if( nums[i] === nums[i-1] && nums[i] === nums[i-2] ) nums.splice( i, 1 );
+      i--;
+   };
+   // console.log( nums );
+   // console.log( nums.length );
+   return nums.length;
+};
+
+const nums1 = [1,1,1,2,2,3];
+const nums2 = [0,0,1,1,1,1,2,3,3];
+
+console.log( removeDupes( nums1 ) );
+console.log( removeDupes( nums2 ) );
+
+// console.log( removeDupes2( nums1 ) );
+// console.log( removeDupes2( nums2 ) );
+// console.log( removeDupes2( nums3 ) );
