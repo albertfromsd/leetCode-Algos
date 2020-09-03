@@ -34,7 +34,23 @@
 // 1 <= y <= 10^9
 
 const brokenCalculator = ( start, target ) => {
+   if( start > target ) return start-target;
+   let count = 0;
+   let diff = target-start;
+   let halfTarget = target/2;
+   if( halfTarget-start > start ) {
+      
+   }
    
+   // count steps to get to half of target
+   function findEfficientOperation( currentNum, targetNum ) {
+      // if( currentNum*2 === targetNum ) return 1;
+      // if( currentNum === targetNum ) return 0;
+      // if( currentNum > targetNum ) return currentNum - targetNum;
+      
+   };
+
+
 };
 
 const x1 = 2, y1 = 3;
