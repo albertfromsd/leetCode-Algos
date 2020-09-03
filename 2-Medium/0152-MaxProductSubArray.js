@@ -39,7 +39,24 @@ function maxProductSubArray2( arr ) {
    // also check for even number of negatives
    // if even number and no 0s, multiply entire array
    // if a single 0 with no negatives, compare the product of both sides of the 0
-   // if there is an odd number of negatives, check the products of the non-zeros and non-single negative stretches
+   // if there is an odd number of negatives, check the products of the non-zeros and non-single negative
+   let zeroCount = 0;
+   let zeroTracker = [];
+   let negCount = 0;
+   let negTracker = [];
+   for( let i=0; i<arr.length; i++ ) {
+      if( arr[i] === 0 ) {
+         zeroTracker.push( i );
+         zeroCount++;
+      } else if( arr[i] < 0 ) {
+         negTracker.push( i )
+         negCount++;
+      };
+   };
+
+   if( zeroCount === 0 && negCount%2 === 0 ) return arr.reduce( (acc, cum) => acc + cum );
+   
+
 };
 
 const arr1 = [2,3,-2,4];

@@ -32,17 +32,20 @@
 function decodeString( str ) {
 
    let tempStr = '';
+
    for( let i=0; i<str.length; i++ ) {
       let char = str[i];
-      let current = '';
+      let multiplierStr = '';
+      let subjectStr;
       if( char.charCodeAt(0) > 47 && char.charCodeAt(0) < 58 ) {
          // numbers
-
+         multiplierStr += char;
       } else if( 
          (char.charCodeAt(0) > 65 && char.charCodeAt(0) < 91) 
          || (char.charCodeAt(0) > 96 && char.charCodeAt(0) < 123 ) 
       ) {
          // capital letters || lowercase letters
+         subjectStr += char;
 
       } else if( char.charCodeAt(0) === 91 ) {
          // '['

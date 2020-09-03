@@ -31,3 +31,9 @@
 // 1 <= s.length <= 10^5
 // 2 <= k <= 10^4
 // s only contains lower case English letters.
+
+function removeAdjacentDuplicates( str, k ) {
+
+   
+
+};
