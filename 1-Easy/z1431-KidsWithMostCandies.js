@@ -48,11 +48,8 @@ function KidsWithMostCandies(arr, num) {
 
     let newArr = [];
     for( let j=0; j<arr.length; j++ ) {
-        if( arr[j] + num >= max ) {
-            newArr.push(true);
-        } else {
-            newArr.push(false);
-        };
+        if( arr[j] + num >= max ) newArr.push(true);
+        else newArr.push(false);
     };
 
     return newArr;
