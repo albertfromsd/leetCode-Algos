@@ -33,8 +33,6 @@ function merge( nums1, m, nums2, n ) {
       else nums1[m + n - 1] = nums2[--n];
    }
 
-   let a = 10;
-   console.log( --a );
    console.log( {nums1} );
 };
 
