@@ -63,7 +63,6 @@ function lemonadeChange( bills ) {
             else return false;
         };
     };
-
     return true;
 };
 
@@ -100,7 +99,6 @@ const bills1 = [5,5,5,10,20]; // true
 const bills2 = [5,5,10]; // true
 const bills3 = [10, 10]; // false
 const bills4 = [5,5,10,10,20]; // false
-
 const bills5 = [5, 10, 5, 20, 5] // true
 
 console.log( lemonadeChange2( bills4 ) );
