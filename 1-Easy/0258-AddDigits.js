@@ -21,9 +21,7 @@ function addDigits( num ) {
     while( finalNum > 9 ) {
         let numStr = finalNum.toString();
         let tempNum = 0;
-        for( const num of numStr ) {
-            tempNum += +num;
-        };
+        for( const num of numStr ) tempNum += +num;
 
         finalNum = tempNum;
     }
@@ -31,7 +29,28 @@ function addDigits( num ) {
     return finalNum;
 };
 
+
+// Runtime: 92 ms, faster than 78.26% of JavaScript online submissions for Add Digits.
+// Memory Usage: 40 MB, less than 5.14% of JavaScript online submissions for Add Digits.
+function addDigits2( num ) {
+    let tempNum = num;
+
+    while( tempNum > 9 ) {
+        let insideNum = tempNum;
+        tempNum = 0;
+
+        while( insideNum ) {
+            tempNum += insideNum % 10;
+            insideNum = Math.floor( insideNum/10 );
+        };
+    };
+
+    console.log( {tempNum} );
+    return tempNum;
+};
+
 const num1 = 38;
 const num2 = 137262;
 
-addDigits( num2 );
+addDigits( num1 );
+addDigits2( num1 );
