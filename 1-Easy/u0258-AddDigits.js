@@ -33,20 +33,28 @@ function addDigits( num ) {
 // Runtime: 92 ms, faster than 78.26% of JavaScript online submissions for Add Digits.
 // Memory Usage: 40 MB, less than 5.14% of JavaScript online submissions for Add Digits.
 function addDigits2( num ) {
-    let tempNum = num;
+    let finalNum = num;
 
-    while( tempNum > 9 ) {
-        let insideNum = tempNum;
-        tempNum = 0;
+    while( finalNum > 9 ) {
+        let insideNum = finalNum;
+        finalNum = 0;
 
         while( insideNum ) {
-            tempNum += insideNum % 10;
+            finalNum += insideNum % 10;
             insideNum = Math.floor( insideNum/10 );
         };
     };
 
-    console.log( {tempNum} );
-    return tempNum;
+    console.log( {finalNum} );
+    return finalNum;
+};
+
+
+// Runtime: 88 ms, faster than 89.13% of JavaScript online submissions for Add Digits.
+// Memory Usage: 40.1 MB, less than 5.03% of JavaScript online submissions for Add Digits.
+function addDigits3( num ) {
+    console.log( {finalNum: (num-1)%9 + 1} );
+    return (num-1)%9 + 1;
 };
 
 const num1 = 38;
@@ -54,3 +62,4 @@ const num2 = 137262;
 
 addDigits( num1 );
 addDigits2( num1 );
+addDigits3( num1 );
