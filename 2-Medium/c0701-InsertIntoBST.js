@@ -49,7 +49,6 @@ const insertIntoBST = function(root, val) {
         if( val < cur.val ) {
             if( !cur.left ) {
                 cur.left = newNode;
-                
                 return root;
             }
             
@@ -57,7 +56,6 @@ const insertIntoBST = function(root, val) {
         } else {
             if( !cur.right ) {
                 cur.right = newNode;
-                
                 return root;
             }
             
